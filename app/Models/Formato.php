@@ -9,4 +9,10 @@ class Formato extends Model
 {
     /** @use HasFactory<\Database\Factories\FormatoFactory> */
     use HasFactory;
+
+    protected $fillable = [
+        'nombre',
+        'descripcion',
+        'activo',
+    ];
 }

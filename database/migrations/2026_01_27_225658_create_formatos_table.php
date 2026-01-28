@@ -16,7 +16,7 @@ return new class extends Migration
             //Fecha de solicitud
             $table->timestamps();
 
-            $table->string('actividaad');
+            $table->string('actividad');
             $table->string('locacion');
             $table->string('lugar_cita');
             $table->date('fecha_cita');
