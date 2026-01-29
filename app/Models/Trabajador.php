@@ -9,5 +9,12 @@ class Trabajador extends Model
 {
     /** @use HasFactory<\Database\Factories\TrabajadorFactory> */
     use HasFactory;
-    
+    protected $fillable = [
+        'nombre',
+        'turno',
+        'cargo',
+        'hora_entrada',
+        'hora_salida',
+    ];
+
 }

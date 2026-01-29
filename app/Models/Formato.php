@@ -11,8 +11,10 @@ class Formato extends Model
     use HasFactory;
 
     protected $fillable = [
-        'nombre',
-        'descripcion',
-        'activo',
+        'actividad',
+        'locacion',
+        'lugar_cita',
+        'fecha_cita',
+        'proyecto',
     ];
 }
