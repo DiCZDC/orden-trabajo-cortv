@@ -17,4 +17,11 @@ class Trabajador extends Model
         'hora_salida',
     ];
 
+    public function scopeSearch($query, $nombre)
+    {
+        if ($nombre) {
+            return $query->where('nombre', 'like', '%' . $nombre . '%');
+        }
+    }
+
 }

@@ -40,7 +40,9 @@ new class extends Component
                     @case(2)
                         <livewire:cards.orden />
                         @break
-                        
+                    @case(3)
+                        <livewire:cards.trabajador />
+                        @break
                 @endswitch
                 
                 

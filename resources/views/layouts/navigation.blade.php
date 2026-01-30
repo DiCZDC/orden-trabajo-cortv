@@ -8,7 +8,7 @@
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-30">
-            <div class="flex">
+            <div class="flex ">
                 <!-- Logo -->
                     <div class="shrink-0 flex items-center">
                         <a href="{{ route('dashboard') }}">
@@ -24,16 +24,15 @@
                             </x-nav-link>
                         </div>
                         <div class="hidden space-x-8 sm:-my-px md:ms-10 md:flex">
-                            <x-nav-link class="text-gray-600" :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                            <x-nav-link class="text-gray-600" :href="route('proyectos')" :active="request()->routeIs('proyectos')">
                                 {{ __('Proyectos') }}
                             </x-nav-link>
                         </div>
                         <div class="hidden space-x-8 sm:-my-px md:ms-10 md:flex">
-                            <x-nav-link class="text-gray-600" :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                            <x-nav-link class="text-gray-600" :href="route('personal')" :active="request()->routeIs('personal')">
                                 {{ __('Personal Registrado') }}
                             </x-nav-link>
                         </div>
-                    
                 @endauth
             </div>
 
@@ -56,7 +55,7 @@
                             </div>
                         </button>
                     </x-slot>
-
+                    
                     <x-slot name="content">
                         <x-dropdown-link :href="route('profile.edit')">
                             {{ __('Perfil') }}
@@ -92,22 +91,24 @@
     </div>
 
     <!-- Responsive Navigation Menu -->
-    @auth
-        <div :class="{'block': open, 'hidden': ! open}" class="hidden lg:hidden">
+    <div :class="{'block': open, 'hidden': ! open}" class="hidden lg:hidden">
+            @auth
             <div class="pt-2 pb-3 space-y-1">
                 <!--Dashboard-->
                     <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Ordenes') }}
                     </x-responsive-nav-link>
-                    <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    <x-responsive-nav-link :href="route('proyectos')" :active="request()->routeIs('proyectos')">
                         {{ __('Proyectos') }}
                     </x-responsive-nav-link>
-                    <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    <x-responsive-nav-link :href="route('personal')" :active="request()->routeIs('personal')">
                         {{ __('Personal Registrado') }}
                     </x-responsive-nav-link>
             </div>
-
+            @endauth
+            
             <!-- Responsive Settings Options -->
+            @auth
             <div class="pt-4 pb-1 border-t border-gray-200">
                 <div class="px-4">
                     <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
@@ -130,10 +131,30 @@
                         </x-responsive-nav-link>
                     </form>
                 </div>
+                
             </div>
+            @endauth  
+            
         </div>
-    @endauth    
 </nav>
 {{-- <div class="h-2 w-full flex justify-center  border-b border-gray-100">
     <div class="w-full h-4 bg-repeat-x" style="background-image: url('https://www.oaxaca.gob.mx/cortv/wp-content/themes/temadeps2023/assets/images/greca.png'); background-size: auto 100%;"></div>
 </div> --}}
+
+{{-- 
+@else
+<a
+    href="{{ route('login') }}"
+    class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] text-[#1b1b18] border border-transparent hover:border-[#19140035] dark:hover:border-[#3E3E3A] rounded-sm text-sm leading-normal"
+>
+    Log in
+</a>
+
+@if (Route::has('register'))
+    <a
+        href="{{ route('register') }}"
+        class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal"
+    >
+        Register
+    </a>
+@endif --}}
