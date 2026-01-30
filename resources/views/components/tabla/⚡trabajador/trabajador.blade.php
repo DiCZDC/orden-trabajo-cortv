@@ -1,9 +1,9 @@
-<section class="mt-10">
-        <div class="mx-auto max-w-screen-xl px-4 lg:px-12">
+<section >
+        <div class="mx-auto max-w-screen-xl">
             <div class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
-                <div class="flex items-center justify-between d p-4">
-                    <div class="flex">
-                        <div class="relative w-full">
+                <div class="flex items-center justify-between d p-5 flex-col xl:flex-row">
+                    <div class="flex w-full">
+                        <div class="relative w-full ">
                            
                             <input  
                                 wire:model.live.debounce.650ms="search"
@@ -28,16 +28,18 @@
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                                 <option value="">Todos los cargos</option>
                                 @foreach ($this->areas() as $area)
-                                    <option value="{{ $area }}">{{ $area }}</option>
+                                <option value="{{ $area }}">{{ $area }}</option>
                                 @endforeach
                                 
                             </select>
                         </div>
                     </div>
                 </div>
-                <div class="grid grid-cols-3 mx-[7%] my-[2%]">
+
+                <!--Tabla-->
+                <div class="grid grid-cols-1 mx-[2%] my-[2%] xl:grid-cols-2 2xl:grid-cols-3">
                     @foreach($this->trabajadores as $trabajador)
-                        <livewire:cards.trabajador_table wire:key="trabajador-{{ $trabajador->id }}" :trabajador="$trabajador" />
+                        <livewire:cards.trabajador wire:key="trabajador-{{ $trabajador->id }}" :trabajador="$trabajador" />
                     @endforeach
 
                 </div>
@@ -49,11 +51,11 @@
                             <select
                                 wire:model.live="perPage"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
-                                <option value="5">5</option>
-                                <option value="10">10</option>
-                                <option value="20">20</option>
-                                <option value="50">50</option>
-                                <option value="100">100</option>
+                                <option value="3">3</option>
+                                <option value="6">6</option>
+                                <option value="9">9</option>
+                                <option value="15">15</option>
+                                <option value="30">30</option>
                             </select>
                         </div>
                     </div>

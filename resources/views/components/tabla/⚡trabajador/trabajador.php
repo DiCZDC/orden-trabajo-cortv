@@ -6,7 +6,7 @@ use Livewire\Attributes\Computed;
 new class extends Component
 {
     public $areaFilter = '';
-    public $perPage = 10;
+    public $perPage = 9;
     public $search = '';
     #[Computed()]
     public function areas()

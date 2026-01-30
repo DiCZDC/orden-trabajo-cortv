@@ -15,8 +15,7 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('nombre')->nullable();
-            // Turno: true para matutino, false para vespertino
-            $table->boolean('turno')->default(false);
+            $table->string('turno')->nullable();
             $table->string('cargo')->nullable();
             
             //Se deben inicializar valores con el formato HH:MM:SS

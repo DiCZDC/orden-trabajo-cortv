@@ -28,12 +28,15 @@ class TrabajadorSeeder extends Seeder
                 continue;
             }
 
+            $turno = $data[1] != '.' ? $data[1]:null;
+            $hora_entrada = $turno !== null ? $data[3]:null;
+            $hora_salida = $turno !== null ? $data[4]:null;
             Trabajador::create([
-                'nombre' => $data[0],
-                'turno' => $data[1],
-                'cargo' => $data[2],
-                'hora_entrada' => $data[3],
-                'hora_salida' => $data[4],
+                'nombre' => strtoupper($data[0]),
+                'turno' => $turno,
+                'cargo' => strtoupper($data[2]),
+                'hora_entrada' => $hora_entrada,
+                'hora_salida' => $hora_salida,
             ]);
         }
 

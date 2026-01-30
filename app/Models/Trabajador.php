@@ -20,7 +20,7 @@ class Trabajador extends Model
     ];
 
     protected $casts = [
-        'turno' => 'boolean',
+        'turno' => 'string',
         'hora_entrada' => 'datetime:H:i:s',
         'hora_salida' => 'datetime:H:i:s',
     ];
