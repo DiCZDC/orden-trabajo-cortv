@@ -22,6 +22,9 @@ Route::get('/proyectos', function () {
 Route::get('/personal', function () {
     return view('personal');
 })->middleware(['auth', 'verified'])->name('personal');
+Route::get('ordenes', function () {
+    return view('orden');
+})->middleware(['auth', 'verified'])->name('ordenes');
 Route::get('/registro/personal', function () {
     return view('registro.personal');
 })->middleware(['auth', 'verified'])->name('registro.personal');

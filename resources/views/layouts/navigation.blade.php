@@ -19,7 +19,7 @@
                     <!-- Navigation Links -->
                     <!--Dashboard-->
                         <div class="hidden space-x-8 sm:-my-px md:ms-10 md:flex">
-                            <x-nav-link class="text-gray-600" :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                            <x-nav-link class="text-gray-600" :href="route('ordenes')" :active="request()->routeIs('ordenes')">
                                 {{ __('Ordenes') }}
                             </x-nav-link>
                         </div>
@@ -95,7 +95,7 @@
             @auth
             <div class="pt-2 pb-3 space-y-1">
                 <!--Dashboard-->
-                    <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    <x-responsive-nav-link :href="route('ordenes')" :active="request()->routeIs('ordenes')">
                         {{ __('Ordenes') }}
                     </x-responsive-nav-link>
                     <x-responsive-nav-link :href="route('proyectos')" :active="request()->routeIs('proyectos')">
