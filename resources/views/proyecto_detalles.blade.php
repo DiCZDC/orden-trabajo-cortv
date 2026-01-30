@@ -1,9 +1,9 @@
 <x-app-layout>
-    <div class="flex- flex-col
+    <div class="px-[5%] py-[2%]">
+        <div class="flex- flex-col
                 {{-- bg-blue-900 --}}
                 ">
 
-        <div class="px-[5%] py-[2%]">
             <div class="text-cortvRojoBasico gap-2.5 flex flex-col">
                 <p class="text-5xl">
                     Informacion del proyecto
@@ -19,7 +19,7 @@
                 </p>
             </div>
         </div>
-        
+    {{-- </livewire:components.tabla.trabajador> --}}
     </div>
     
     
