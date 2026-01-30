@@ -21,24 +21,23 @@
                     </div>
                     <div class="flex space-x-3">
                         <div class="flex space-x-3 items-center">
-                            <label class="w-80 text-sm font-medium text-gray-900">Cargo del Personal:</label>
-                            <select 
-                                wire:model.live="areaFilter"
+                            <label class="w-80 text-sm font-medium text-gray-900 text-right">Buscar por Fecha:</label>
+                            <input
+                                type="date"
+                                id="fecha"
+                                value="{{ date('Y-m-d') }}"
+                                min="2000-01-01"
+                                max="{{ date('Y-m-d') }}"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
-                                <option value="">Todos los cargos</option>
-                                @foreach ($this->areas() as $area)
-                                <option value="{{ $area }}">{{ $area }}</option>
-                                @endforeach
                                 
-                            </select>
                         </div>
                     </div>
                 </div>
 
                 <!--Tabla-->
-                <div class="grid grid-cols-1 mx-[2%] transition-all xl:grid-cols-2 2xl:grid-cols-3">
-                    @foreach($this->trabajadores as $trabajador)
-                        <livewire:cards.trabajador wire:key="trabajador-{{ $trabajador->id }}" :trabajador="$trabajador" />
+                <div class="grid grid-cols-1 mx-[2%] xl:grid-cols-2 2xl:grid-cols-3">
+                    @foreach($this->proyectos() as $proyecto)
+                        <livewire:cards.proyecto wire:key="orden-{{ $proyecto->id }}" :orden="$proyecto" />
                     @endforeach
 
                 </div>
@@ -58,7 +57,7 @@
                             </select>
                         </div>
                     </div>
-                    {{ $this->trabajadores() }}
+                    {{ $this->proyectos() }}
                 </div>
             </div>
 

@@ -4,7 +4,7 @@
 </div>
 
 
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100 mt-2">
+<nav x-data="{ open: false }" class="bg-white transition-all border-b border-gray-100 mt-2">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-30">

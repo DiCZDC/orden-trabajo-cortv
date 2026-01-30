@@ -41,4 +41,17 @@ class Orden extends Model
     {
         return $this->belongsTo(Proyecto::class);
     }
+    /*
+        Filtro para busquedas
+    */
+    public function scopeSearch($query, $search)
+    {
+        if ($search) {
+            return $query->where('lugar_cita', 'like', '%' . $search . '%')
+                         ->orWhere('fecha_cita', 'like', '%' . $search . '%')
+                         ->orWhere('fecha_solicitud', 'like', '%' . $search . '%');
+        }
+        return $query;
+    }
+
 }

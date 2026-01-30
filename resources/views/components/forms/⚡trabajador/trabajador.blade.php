@@ -18,15 +18,11 @@
                     <span> Nombre del Trabajador </span>
                 </label>
 
-                <input list="trabajador" id="trabajador" name="trabajador" wire:model.blur="nombre_trabajador"
+                <input list="trabajadores" id="trabajador" name="trabajador" wire:model.blur="nombre_trabajador"
                         class="border-cortvBorde border-1 rounded-md p-2 h-[40px] w-full mt-2 text-[16px]"
                         placeholder="¿Cual es el nombre del trabajador?">
                 
-                <datalist id="trabajador">
-                    {{-- @foreach($this->productos as $producto)
-                        <option value="{{ $producto->nombre_producto }}">
-                    @endforeach --}}
-                </datalist>
+                
                 <div>
                     @error('nombre_trabajador')
                             <span class="text-red-500 text-sm">{{ $message }}</span>
@@ -39,14 +35,14 @@
                     <span> Cargo </span>
                 </label>
 
-                <input list="cargo" id="cargo" name="cargo" wire:model.blur="nombre_cargo"
+                <input list="cargos" id="cargo" name="cargo" wire:model.blur="nombre_cargo"
                         class="border-cortvBorde border-1 rounded-md p-2 h-[40px] w-full mt-2 text-[16px]"
                         placeholder="¿Cual es el cargo del trabajador? ">
                 
-                <datalist id="cargo">
-                    {{-- @foreach($this->productos as $producto)
-                        <option value="{{ $producto->nombre_producto }}">
-                    @endforeach --}}
+                <datalist id="cargos">
+                    @foreach($this->cargos as $cargo)
+                        <option value="{{ $cargo }}">
+                    @endforeach
                 </datalist>
                 <div>
                     @error('nombre_cargo')
@@ -56,45 +52,24 @@
             </div> 
             {{-- Donde se llevara a cabo la cita --}}
             <div>
-                <label for="proyecto" class="flex flex-col gap-1"> 
-                    <span> Proyecto </span>
+                <label for="turno" class="flex flex-col gap-1"> 
+                    <span> Turno </span>
                 </label>
 
-                <input list="proyecto" id="proyecto" name="proyecto" wire:model.blur="nombre_proyecto"
-                        class="border-cortvBorde border-1 rounded-md p-2 h-[40px] w-full mt-2 text-[16px]"
-                        placeholder="¿Que proyecto tendra asignado? ">
-                
-                <datalist id="proyecto">
-                    {{-- @foreach($this->productos as $producto)
-                        <option value="{{ $producto->nombre_producto }}">
-                    @endforeach --}}
-                </datalist>
+                <select name="turno" id="turno" wire:model.blur="nombre_turno"
+                        class="border-cortvBorde border-1 rounded-md p-2 h-[40px] w-full mt-2 text-[16px]">
+                    <option value="" disabled selected>Seleccione el turno del trabajador</option>
+                    <option value="MATUTINO">Matutino</option>
+                    <option value="VESPERTINO">Vespertino</option>
+                    <option value="DESCANCERO">Descansero</option>
+                </select>
                 <div>
-                    @error('nombre_locacion')
+                    @error('nombre_turno')
                             <span class="text-red-500 text-sm">{{ $message }}</span>
                     @enderror
                 </div>
             </div> 
-            {{-- ¿En que dia se llevara a cabo la cita? --}}
-            <div>
-                <label for="fecha" class="flex flex-col gap-1"> 
-                    <span> Fecha de la Cita </span>
-                </label>
-
-                <input
-                    type="date"
-                    id="fecha"
-                    value="{{ date('Y-m-d') }}"
-                    min="2000-01-01"
-                    max="{{ date('Y-m-d') }}"
-                    class="border-cortvBorde border-1 rounded-md p-2 h-[40px] w-full mt-2 text-[16px]"
-                />
-                <div>
-                    @error('nombre_trabajador')
-                            <span class="text-red-500 text-sm">{{ $message }}</span>
-                    @enderror
-                </div>
-            </div> 
+            
 
            
             <!-- boton de Enviar  -->

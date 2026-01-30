@@ -18,14 +18,14 @@
                     <span> Trabajador </span>
                 </label>
 
-                <input list="trabajador" id="trabajador" name="trabajador" wire:model.blur="nombre_trabajador"
+                <input list="trabajadores" id="trabajador" name="trabajador" wire:model.blur="nombre_trabajador"
                         class="border-cortvBorde border-1 rounded-md p-2 h-[40px] w-full mt-2 text-[16px]"
                         placeholder="¿A que trabajador se le asignara la orden?">
                 
-                <datalist id="trabajador">
-                    {{-- @foreach($this->productos as $producto)
-                        <option value="{{ $producto->nombre_producto }}">
-                    @endforeach --}}
+                <datalist id="trabajadores">
+                    @foreach($this->trabajadores as $trabajador)
+                        <option value="{{ $trabajador->nombre }}">
+                    @endforeach
                 </datalist>
                 <div>
                     @error('nombre_trabajador')
@@ -39,14 +39,14 @@
                     <span> Lugar de cita </span>
                 </label>
 
-                <input list="locacion" id="locacion" name="locacion" wire:model.blur="nombre_locacion"
+                <input list="locaciones" id="locacion" name="locacion" wire:model.blur="nombre_locacion"
                         class="border-cortvBorde border-1 rounded-md p-2 h-[40px] w-full mt-2 text-[16px]"
                         placeholder="¿Donde sera el punto de encuentro? ">
                 
-                <datalist id="locacion">
-                    {{-- @foreach($this->productos as $producto)
-                        <option value="{{ $producto->nombre_producto }}">
-                    @endforeach --}}
+                <datalist id="locaciones">
+                    @foreach($this->locaciones as $locacion)
+                        <option value="{{ $locacion }}">
+                    @endforeach
                 </datalist>
                 <div>
                     @error('nombre_locacion')
@@ -60,14 +60,14 @@
                     <span> Proyecto </span>
                 </label>
 
-                <input list="proyecto" id="proyecto" name="proyecto" wire:model.blur="nombre_proyecto"
+                <input list="proyectos" id="proyecto" name="proyecto" wire:model.blur="nombre_proyecto"
                         class="border-cortvBorde border-1 rounded-md p-2 h-[40px] w-full mt-2 text-[16px]"
                         placeholder="¿Que proyecto tendra asignado? ">
                 
-                <datalist id="proyecto">
-                    {{-- @foreach($this->productos as $producto)
-                        <option value="{{ $producto->nombre_producto }}">
-                    @endforeach --}}
+                <datalist id="proyectos">
+                    @foreach($this->proyectos as $proyecto)
+                        <option id= "{{ $proyecto->id }}"value="{{ $proyecto->nombre }}">
+                    @endforeach
                 </datalist>
                 <div>
                     @error('nombre_locacion')
