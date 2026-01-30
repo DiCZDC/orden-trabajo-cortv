@@ -11,16 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('formatos', function (Blueprint $table) {
+        Schema::create('proyectos', function (Blueprint $table) {
             $table->id();
-            //Fecha de solicitud
-            $table->timestamps();
-
+            $table->string('nombre');
             $table->string('actividad');
             $table->string('locacion');
-            $table->string('lugar_cita');
-            $table->date('fecha_cita');
-            $table->time('proyecto');
+            $table->timestamps();
         });
     }
 
@@ -29,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('formatos');
+        Schema::dropIfExists('proyectos');
     }
 };
