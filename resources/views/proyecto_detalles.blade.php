@@ -1,27 +1,17 @@
 <x-app-layout>
-    <div class="px-[5%] py-[2%]">
-        <div class="flex- flex-col
-                {{-- bg-blue-900 --}}
-                ">
-
-            <div class="text-cortvRojoBasico gap-2.5 flex flex-col">
-                <p class="text-5xl">
-                    Informacion del proyecto
-                </p>
-                <p class="text-3xl">
-                    Mensaje del gobernador del estado
-                </p>
-                <p class="text-xl">
-                    19 de enero del 2026
-                </p>
-                <p class="text-3xl">
-                    Trabjadores Adscritos al Evento:
-                </p>
+    <div class=" flex justify-center my-10">
+        <div class="px-9 py-10 items-center self-center bg-white rounded-lg transition-all duration-300 ease-in-out w-[90%] xl:w-[85%] 2xl:w-[75%] shadow-md ">
+            
+            <div class="flex justify-between items-center mb-10">
+                
+                <a href="{{ route('proyectos') }}" class="text-cortvGrisTexto shadow-md border border-gray-300 hover:text-gray-700 font-bold py-2 px-4 rounded">
+                    ← Volver a Proyectos
+                </a>
             </div>
+
+            <livewire:detalles.proyecto proyecto_id="{{ $id }}" />
         </div>
-    {{-- </livewire:components.tabla.trabajador> --}}
     </div>
-    
     
     <!-- Live as if you were to die tomorrow. Learn as if you were to live forever. - Mahatma Gandhi -->
 </x-app-layout>
