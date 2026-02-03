@@ -22,6 +22,14 @@ class DatabaseSeeder extends Seeder
             'email' => 'test@example.com',
         ]);
 
-        $this->call(TrabajadorSeeder::class);
+        // Orden de ejecución importante:
+        // 1. Trabajadores (no tienen dependencias)
+        // 2. Proyectos (no tienen dependencias)
+        // 3. Ordenes (depende de Trabajadores y Proyectos)
+        $this->call([
+            TrabajadorSeeder::class,
+            ProyectoSeeder::class,
+            OrdenSeeder::class,
+        ]);
     }
 }

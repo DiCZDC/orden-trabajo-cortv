@@ -1,26 +1,38 @@
 <?php
 
 use Livewire\Component;
-
 new class extends Component
 {
     protected $titulo = "Mensaje del Gobernador del Estado";
     protected $productor = "Ernesto Ordoñez Maldonado";
+    protected $fecha;
+
+    public function mount()
+    {
+        $this->fecha = date('d/m/Y');
+    }
 };
 ?>
 
 
-<div class="bg-white px-[5%] py-[5%] gap-3 items-center justify-between inline-flex justify-center align-middle">
-    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M23.3333 3.33337H9.99996C9.1159 3.33337 8.26806 3.68456 7.64294 4.30968C7.01782 4.93481 6.66663 5.78265 6.66663 6.66671V33.3334C6.66663 34.2174 7.01782 35.0653 7.64294 35.6904C8.26806 36.3155 9.1159 36.6667 9.99996 36.6667H30C30.884 36.6667 31.7319 36.3155 32.357 35.6904C32.9821 35.0653 33.3333 34.2174 33.3333 33.3334V13.3334M23.3333 3.33337L33.3333 13.3334M23.3333 3.33337L23.3333 13.3334H33.3333M26.6666 21.6667H13.3333M26.6666 28.3334H13.3333M16.6666 15H13.3333" stroke="#1E1E1E" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-    <div>
-        <h1>
-            {{ $this->titulo }}
-        </h1>
-        <h2>
-            Productor: {{ $this->productor }}
-        </h2>
+<div class="bg-white rounded-lg border-[.5px] m-[5px]  px-[5%] py-[5%] gap-3 items-center justify-between flex flex-col transition-all align-middle">
+    <div class="w-full gap-4 flex flex-row align-middle items-center justify-between">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M34.5 10.5L24 18L34.5 25.5V10.5Z" stroke="#1E1E1E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M21 7.5H4.5C2.84315 7.5 1.5 8.84315 1.5 10.5V25.5C1.5 27.1569 2.84315 28.5 4.5 28.5H21C22.6569 28.5 24 27.1569 24 25.5V10.5C24 8.84315 22.6569 7.5 21 7.5Z" stroke="#1E1E1E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div>
+            <p class="text-md font-bold ">  
+                {{ $this->titulo }}
+            </p>
+            <p class="text-sm font-normal">
+                <b>Productor: </b>{{ $this->productor }}
+            </p>
+            <p class="text-xs ">
+                <b>Fecha: </b>{{ $this->fecha }}
+            </p>
+        </div>
+
     </div>
     <div class="rounded-[4px] px-[15px] py-1 bg-cortvRojoBasico shadow-xl inline-flex items-center gap-2">
         <svg width="16" height="16" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">

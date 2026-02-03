@@ -18,10 +18,19 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 Route::get('/proyectos', function () {
     return view('proyectos');
+    
 })->middleware(['auth', 'verified'])->name('proyectos');
+Route::get('proyectos/{id}', function ($id) {
+    return view('proyecto_detalles', ['id' => $id]);
+})->middleware(['auth', 'verified'])->name('detalleproyecto');
+
+
 Route::get('/personal', function () {
     return view('personal');
 })->middleware(['auth', 'verified'])->name('personal');
+Route::get('ordenes', function () {
+    return view('orden');
+})->middleware(['auth', 'verified'])->name('ordenes');
 Route::get('/registro/personal', function () {
     return view('registro.personal');
 })->middleware(['auth', 'verified'])->name('registro.personal');

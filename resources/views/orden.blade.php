@@ -2,13 +2,14 @@
     <div class="flex flex-col px-[5%] py-[1%] gap-4 lg:flex-row ">
         <!-- Contenedor Izquierda -->
             <div class="flex flex-col w-full px-[1%] transition-all 2xl:w-1/3 ">
-                <livewire:forms.proyecto />
+                <livewire:forms.orden />
                 
             </div>
         <!-- Contenedor Derecha -->
         <div class="w-full px-[1%] transition-all 2xl:w-2/3">
-            <livewire:tabla.proyecto />
+            <livewire:tabla.orden />
         </div>  
     </div>
-    <!-- Simplicity is the ultimate sophistication. - Leonardo da Vinci -->
+    
+    <!-- Nothing in life is to be feared, it is only to be understood. Now is the time to understand more, so that we may fear less. - Maria Skłodowska-Curie -->
 </x-app-layout>
