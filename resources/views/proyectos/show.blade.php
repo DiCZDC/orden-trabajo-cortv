@@ -4,7 +4,7 @@
             
             <div class="flex justify-between items-center mb-10">
                 
-                <a href="{{ route('proyectos') }}" class="text-cortvGrisTexto shadow-md border border-gray-300 hover:text-gray-700 font-bold py-2 px-4 rounded">
+                <a href="{{ route('proyectos.index') }}" class="text-cortvGrisTexto shadow-md border border-gray-300 hover:text-gray-700 font-bold py-2 px-4 rounded">
                     ← Volver a Proyectos
                 </a>
             </div>
