@@ -5,6 +5,7 @@ use Livewire\Component;
 new class extends Component
 {
     protected $trabajador;
+    
 
     public function mount($trabajador)
     {
@@ -31,6 +32,7 @@ new class extends Component
             </p>
         @endif
     </div>
+    <a href="{{ route('personal.show', $this->trabajador->id) }}">
     <div class="rounded-[4px] px-[15px] py-1 bg-cortvRojoBasico shadow-xl inline-flex items-center gap-2">
         <svg width="16" height="16" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g clip-path="url(#clip0_9_202)">
@@ -48,5 +50,6 @@ new class extends Component
         </span>
         
     </div>
+    </a>
     {{-- Smile, breathe, and go slowly. - Thich Nhat Hanh --}}
 </div>
