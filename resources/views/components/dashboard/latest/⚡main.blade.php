@@ -1,6 +1,7 @@
 <?php
 
 use Livewire\Component;
+use App\Models\Proyecto;
 
 new class extends Component
 {
@@ -9,10 +10,14 @@ new class extends Component
     public $tipo = 1; 
     //Titulos
     private $titles = [
-        1 => 'Últimos Proyectos Editados',
-        2 => 'Últimas Órdenes Generadas',
-        3 => 'Últimos Trabajadores Registrados'
+        1 => 'Últimos Proyectos',
+        2 => 'Últimas Órdenes Generadas',        
     ];   
+    
+    public function obtenerProyectosRecientes() {
+        return Proyecto::orderBy('created_at', 'desc')->limit(3)->get();
+    }
+    
     public function mount($tipo, $background){
         $this->tipo = $tipo;
         if($this->tipo == 1){
@@ -20,6 +25,7 @@ new class extends Component
         }
     }
 };
+    
 ?>
 
 <div class=" px-[5%] py-[5%] w-full flex flex-col gap-3 items-center {{$this->background ? 'bg-white shadow-xl ': ''}}">
@@ -27,26 +33,27 @@ new class extends Component
         {{$this->titles[$this->tipo] }}
     </h2>
     @if ($this->background )
-        DANI PENDEJO
+        Consulta los últimos proyectos realizados en el sistema.
     @endif
     <div class="space-y-4 w-full">
         <div class="grid grid-cols-1  gap-4 w-full">
             {{-- Aquí van las tarjetas de los proyectos --}}
-            @for ($i = 0; $i < 3; $i++)
+            
                 @switch($this->tipo)
                     @case(1)
-                        <livewire:cards.proyecto />
-                        @break
+                    @foreach($this->obtenerProyectosRecientes() as $proyecto)
+                        <livewire:cards.proyecto 
+                        :orden="$proyecto" wire:key="proyecto-{{ $proyecto->id }}"/>
+                    @endforeach
+                    @break
+
                     @case(2)
                         <livewire:cards.orden />
-                        @break
-                    @case(3)
-                        <livewire:cards.trabajador />
                         @break
                 @endswitch
                 
                 
-            @endfor
+            
         </div>
     </div>
 </div>

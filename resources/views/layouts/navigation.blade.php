@@ -19,17 +19,17 @@
                     <!-- Navigation Links -->
                     <!--Dashboard-->
                         <div class="hidden space-x-8 sm:-my-px md:ms-10 md:flex">
-                            <x-nav-link class="text-gray-600" :href="route('ordenes')" :active="request()->routeIs('ordenes')">
+                            <x-nav-link class="text-gray-600" :href="route('ordenes.index')" :active="request()->routeIs('ordenes.index')">
                                 {{ __('Ordenes') }}
                             </x-nav-link>
                         </div>
                         <div class="hidden space-x-8 sm:-my-px md:ms-10 md:flex">
-                            <x-nav-link class="text-gray-600" :href="route('proyectos')" :active="request()->routeIs('proyectos')">
+                            <x-nav-link class="text-gray-600" :href="route('proyectos.index')" :active="request()->routeIs('proyectos.index')">
                                 {{ __('Proyectos') }}
                             </x-nav-link>
                         </div>
                         <div class="hidden space-x-8 sm:-my-px md:ms-10 md:flex">
-                            <x-nav-link class="text-gray-600" :href="route('personal')" :active="request()->routeIs('personal')">
+                            <x-nav-link class="text-gray-600" :href="route('personal.index')" :active="request()->routeIs('personal.index')">
                                 {{ __('Personal Registrado') }}
                             </x-nav-link>
                         </div>
@@ -95,13 +95,13 @@
             @auth
             <div class="pt-2 pb-3 space-y-1">
                 <!--Dashboard-->
-                    <x-responsive-nav-link :href="route('ordenes')" :active="request()->routeIs('ordenes')">
+                    <x-responsive-nav-link :href="route('ordenes.index')" :active="request()->routeIs('ordenes.index')">
                         {{ __('Ordenes') }}
                     </x-responsive-nav-link>
-                    <x-responsive-nav-link :href="route('proyectos')" :active="request()->routeIs('proyectos')">
+                    <x-responsive-nav-link :href="route('proyectos.index')" :active="request()->routeIs('proyectos.index')">
                         {{ __('Proyectos') }}
                     </x-responsive-nav-link>
-                    <x-responsive-nav-link :href="route('personal')" :active="request()->routeIs('personal')">
+                    <x-responsive-nav-link :href="route('personal.index')" :active="request()->routeIs('personal.index')">
                         {{ __('Personal Registrado') }}
                     </x-responsive-nav-link>
             </div>
