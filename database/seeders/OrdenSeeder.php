@@ -54,9 +54,38 @@ class OrdenSeeder extends Seeder
                 'fecha_solicitud' => now()->subDay(),
             ],
         ];
-
-        foreach ($ordenes as $orden) {
-            Orden::create($orden);
+        for ($i=0; $i < 20; $i++) { 
+            $orden_noticiero = [
+                'trabajador_id' => $trabajadores->random()->id,
+                'proyecto_id' => $proyectos->where('nombre', 'Noticiero Matutino')->first()?->id ?? $proyectos->first()->id,
+                'lugar_cita' => 'Estudio A - Planta baja',
+                'fecha_cita' => now()->addDays(1),
+                'fecha_solicitud' => now(),
+            ];
+            Orden::create($orden_noticiero);
         }
+        for  ($i=0; $i < 20; $i++) { 
+            $orden_documental = [
+                'trabajador_id' => $trabajadores->random()->id,
+                'proyecto_id' => $proyectos->where('nombre', 'Documental Cultural')->first()?->id ?? $proyectos->first()->id,
+                'lugar_cita' => 'Centro Histórico - Plaza Principal',
+                'fecha_cita' => now()->addDays(3),
+                'fecha_solicitud' => now(),
+            ];
+            Orden::create($orden_documental);
+        }
+        for  ($i=0; $i < 20; $i++) { 
+            $orden_deportivo = [
+                'trabajador_id' => $trabajadores->random()->id,
+                'proyecto_id' => $proyectos->where('nombre', 'Programa Deportivo')->first()?->id ?? $proyectos->first()->id,
+                'lugar_cita' => 'Estadio Municipal - Entrada principal',
+                'fecha_cita' => now()->addDays(5),
+                'fecha_solicitud' => now()->subDay(),
+            ];
+            Orden::create($orden_deportivo);
+        }
+
+
+        
     }
 }

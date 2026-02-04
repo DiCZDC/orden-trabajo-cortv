@@ -1,12 +1,16 @@
 <?php
 
 use Livewire\Component;
-
 new class extends Component
 {
     protected $titulo = "Mensaje del Gobernador del Estado";
     protected $actividad = "Transmision del mensaje del gobernador del estado";
     protected $trabajador = "Ernesto Ordoñez Maldonado";
+    public $Orden;
+    public function mount($orden)
+    {
+        $this->Orden = $orden;
+    }
 
 };
 ?>
@@ -22,13 +26,13 @@ new class extends Component
         <div>
             <div class="w-auto ml-4">
                 <p class="text-md font-bold ">
-                    {{ $this->titulo }}
+                    {{ $Orden->proyecto->nombre }}
                 </p>
                 <p class="text-sm font-normal">        
-                    Actividad: {{ $this->actividad }}
+                    Actividad: {{ $Orden->proyecto->actividad }}
                 </p>
                 <p class="text-sm font-normal">
-                    Para: {{ $this->trabajador }}
+                    Para: {{ $Orden->trabajador->nombre }}
                 </p>
             </div>
         </div>
