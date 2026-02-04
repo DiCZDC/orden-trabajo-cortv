@@ -59,13 +59,13 @@
                         Ultimas Ordenes Asignadas:
                     </p>
                     <div class="grid grid-cols-1 mx-[2%] xl:grid-cols-2 2xl:grid-cols-3 border border-gray-300 rounded-md p-4">
-                        @if($this->ordenes->isEmpty())
+                        @if($this->ordenes===null)
                             <p class="text-gray-500 text-center">
                                 No hay ordenes asignadas a este trabajador.
                             </p>
                         @else
                             @foreach ($this->ordenes as $orden)
-                                <livewire:cards.orden :orden-id="$orden->id" />
+                                <livewire:cards.orden :orden="$orden" />
                             @endforeach
                         @endif
                     </div>

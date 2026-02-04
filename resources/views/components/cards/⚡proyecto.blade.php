@@ -3,10 +3,7 @@
 use Livewire\Component;
 new class extends Component
 {
-    protected $titulo = "Mensaje del Gobernador del Estado";
-    protected $productor = "Ernesto Ordoñez Maldonado";
-    protected $fecha;
-    public $orden;
+    
     public $proyecto;
     public function mount($proyecto)
     {
@@ -17,20 +14,20 @@ new class extends Component
 
 
 <div class="bg-white rounded-lg border-[.5px] m-[5px]  px-[5%] py-[5%] gap-3 items-center justify-between flex flex-col transition-all align-middle">
-    <div class="w-full gap-4 flex flex-row align-middle items-center justify-between">
+    <div class="w-full gap-4 flex flex-row align-middle items-center justify-evenly overflow-hidden">
         <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M34.5 10.5L24 18L34.5 25.5V10.5Z" stroke="#1E1E1E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
             <path d="M21 7.5H4.5C2.84315 7.5 1.5 8.84315 1.5 10.5V25.5C1.5 27.1569 2.84315 28.5 4.5 28.5H21C22.6569 28.5 24 27.1569 24 25.5V10.5C24 8.84315 22.6569 7.5 21 7.5Z" stroke="#1E1E1E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
         <div>
             <p class="text-md font-bold ">  
-                {{ $this->titulo }}
+                {{ $proyecto->nombre }}
             </p>
             <p class="text-sm font-normal">
-                <b>Productor: </b>{{ $this->productor }}
+                <b>Actividad: </b>{{ $proyecto->actividad }}
             </p>
             <p class="text-xs ">
-                <b>Fecha: </b>{{ $this->fecha }}
+                <b>Locación: </b>{{ $proyecto->locacion }}
             </p>
         </div>
 
