@@ -7,16 +7,10 @@ new class extends Component
     protected $productor = "Ernesto Ordoñez Maldonado";
     protected $fecha;
     public $orden;
-
-    public function mount($orden = null)
+    public $proyecto;
+    public function mount($proyecto)
     {
-        $this->orden = $orden;
-        $this->fecha = date('d/m/Y');
-
-        if($this->orden){
-            $this->titulo = $this->orden->titulo;
-            $this->productor = $this->orden->productor;            
-        }
+        $this->proyecto = $proyecto;
     }
 };
 ?>
@@ -44,30 +38,29 @@ new class extends Component
     
     
 
-    <div class="rounded-[4px] px-[15px] py-1 bg-cortvRojoBasico shadow-xl inline-flex items-center gap-2">
-        <svg width="16" height="16" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <g clip-path="url(#clip0_9_202)">
-                <path d="M1.08337 13C1.08337 13 5.41671 4.33331 13 4.33331C20.5834 4.33331 24.9167 13 24.9167 13C24.9167 13 20.5834 21.6666 13 21.6666C5.41671 21.6666 1.08337 13 1.08337 13Z" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M13 16.25C14.795 16.25 16.25 14.7949 16.25 13C16.25 11.2051 14.795 9.74998 13 9.74998C11.2051 9.74998 9.75004 11.2051 9.75004 13C9.75004 14.7949 11.2051 16.25 13 16.25Z" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-            </g>
-            <defs>
-                <clipPath id="clip0_9_202">
-                <rect width="26" height="26" fill="white"/>
-                </clipPath>
-            </defs>
-        </svg>
-        
-        @if($this->orden)
-        <a href="{{ route('proyectos.show', ['id' => $this->orden->id]) }}">
-            <span class="text-cortvHueso text-center">
-                    Ver
-            </span>
+    <a href="{{ route('proyectos.show', ['id' => $this->proyecto->id]) }}">
+            <div class="rounded-[4px] px-[15px] py-1 bg-cortvRojoBasico shadow-xl inline-flex items-center gap-2">
+                <svg width="16" height="16" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_9_202)">
+                        <path d="M1.08337 13C1.08337 13 5.41671 4.33331 13 4.33331C20.5834 4.33331 24.9167 13 24.9167 13C24.9167 13 20.5834 21.6666 13 21.6666C5.41671 21.6666 1.08337 13 1.08337 13Z" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M13 16.25C14.795 16.25 16.25 14.7949 16.25 13C16.25 11.2051 14.795 9.74998 13 9.74998C11.2051 9.74998 9.75004 11.2051 9.75004 13C9.75004 14.7949 11.2051 16.25 13 16.25Z" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                    </g>
+                    <defs>
+                        <clipPath id="clip0_9_202">
+                        <rect width="26" height="26" fill="white"/>
+                        </clipPath>
+                    </defs>
+                </svg>
+                
+                {{-- @else
+                    <span class="text-cortvHueso text-center">
+                        No se asignó ninguna orden
+                    </span>
+                @endif     --}}
+                <span class="text-cortvHueso text-center">
+                        Ver
+                </span>
+            </div>
         </a>
-        @else
-            <span class="text-cortvHueso text-center">
-                No se asignó ninguna orden
-            </span>
-        @endif    
-    </div>
     
 </div>

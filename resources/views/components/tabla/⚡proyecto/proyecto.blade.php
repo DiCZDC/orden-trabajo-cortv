@@ -37,7 +37,7 @@
                 <!--Tabla-->
                 <div class="grid grid-cols-1 mx-[2%] xl:grid-cols-2 2xl:grid-cols-3">
                     @foreach($this->proyectos() as $proyecto)
-                        <livewire:cards.proyecto wire:key="orden-{{ $proyecto->id }}" :orden="$proyecto" />
+                        <livewire:cards.proyecto wire:key="proyecto-{{ $proyecto->id }}" :proyecto="$proyecto" />
                     @endforeach
 
                 </div>
