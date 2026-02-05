@@ -21,28 +21,33 @@ class ProyectoSeeder extends Seeder
         // Crear algunos proyectos de ejemplo
         $proyectos = [
             [
+                'productor_id' => 1,  
                 'nombre' => 'Noticiero Matutino',
-                'actividad' => 'Transmisión en vivo',
+                //'actividad' => 'Transmisión en vivo',
                 'locacion' => 'Estudio A',
             ],
             [
+                'productor_id' => 2,  
                 'nombre' => 'Documental Cultural',
-                'actividad' => 'Grabación',
+                //'actividad' => 'Grabación',
                 'locacion' => 'Centro Histórico',
             ],
             [
+                'productor_id' => 3,  
                 'nombre' => 'Programa Deportivo',
-                'actividad' => 'Producción',
+                //'actividad' => 'Producción',
                 'locacion' => 'Estadio Municipal',
             ],
             [
+                'productor_id' => 4,  
                 'nombre' => 'Entrevistas Especiales',
-                'actividad' => 'Grabación',
+                // 'actividad' => 'Grabación',
                 'locacion' => 'Estudio B',
             ],
             [
+                'productor_id' => 5,  
                 'nombre' => 'Cobertura de Eventos',
-                'actividad' => 'Transmisión en vivo',
+                // 'actividad' => 'Transmisión en vivo',
                 'locacion' => 'Exteriores',
             ],
         ];

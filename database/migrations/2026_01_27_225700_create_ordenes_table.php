@@ -21,8 +21,6 @@ return new class extends Migration
             $table->foreignId('proyecto_id')->constrained('proyectos')->onDelete('cascade');
             $table->text('actividad');
 
-
-
             $table->string('lugar_cita');
             $table->date('fecha_cita');
             
