@@ -11,10 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('productors', function (Blueprint $table) {
+        Schema::create('empleados', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
             $table->foreignId('trabajador_id')->constrained('trabajadors')->onDelete('cascade');
+            $table->timestamps();
+
+            $table->string('turno')->nullable();
+            $table->string('cargo')->nullable();
+            
+            //Se deben inicializar valores con el formato HH:MM:SS
+            $table->time('hora_entrada')->nullable();
+            $table->time('hora_salida')->nullable();
         });
     }
 
@@ -23,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('productors');
+        Schema::dropIfExists('empleados');
     }
 };

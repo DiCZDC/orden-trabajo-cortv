@@ -14,8 +14,9 @@ class Orden extends Model
     protected $table = 'ordenes';
 
     protected $fillable = [
-        'trabajador_id',
+        'empleado_id',
         'proyecto_id',
+        'actividad',
         'lugar_cita',
         'fecha_cita',
         'fecha_solicitud',
@@ -27,11 +28,11 @@ class Orden extends Model
     ];
 
     /**
-     * Una orden pertenece a un trabajador
+     * Una orden pertenece a un empleado
      */
-    public function trabajador(): BelongsTo
+    public function empleado(): BelongsTo
     {
-        return $this->belongsTo(Trabajador::class);
+        return $this->belongsTo(Empleado::class);
     }
 
     /**

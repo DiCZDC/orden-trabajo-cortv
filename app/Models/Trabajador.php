@@ -13,24 +13,22 @@ class Trabajador extends Model
 
     protected $fillable = [
         'nombre',
-        'turno',
-        'cargo',
-        'hora_entrada',
-        'hora_salida',
     ];
 
-    protected $casts = [
-        'turno' => 'string',
-        'hora_entrada' => 'datetime:H:i:s',
-        'hora_salida' => 'datetime:H:i:s',
-    ];
 
     /**
-     * Un trabajador tiene muchas órdenes
+     * Un trabajador puede tener un empleado
      */
-    public function ordenes(): HasMany
+    public function empleado(): HasOne
     {
-        return $this->hasMany(Orden::class);
+        return $this->hasOne(Empleado::class);
+    }
+    /**
+     * Un trabajador puede tener un productor
+     */
+    public function productor(): HasOne
+    {
+        return $this->hasOne(Productor::class);
     }
 
     public function scopeSearch($query, $nombre)
