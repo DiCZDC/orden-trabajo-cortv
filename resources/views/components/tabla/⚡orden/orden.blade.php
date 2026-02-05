@@ -46,7 +46,7 @@
                 <!--Tabla-->
                 <div class="grid grid-cols-1 mx-[2%] xl:grid-cols-2 2xl:grid-cols-3">
                     @foreach($this->ordenes as $orden)
-                        <livewire:cards.orden wire:key="orden-{{ $orden->id }}" :orden="$orden" />
+                        <livewire:cards.orden wire:key="orden-{{ $orden->id }}" :small="true" :orden="$orden" />
                     @endforeach
 
                 </div>

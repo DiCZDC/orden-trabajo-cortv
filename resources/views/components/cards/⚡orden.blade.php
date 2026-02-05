@@ -3,20 +3,19 @@
 use Livewire\Component;
 new class extends Component
 {
-    protected $titulo = "Mensaje del Gobernador del Estado";
-    protected $actividad = "Transmision del mensaje del gobernador del estado";
-    protected $trabajador = "Ernesto Ordoñez Maldonado";
     public $Orden;
-    public function mount($orden)
+    public $small = true;
+    public function mount($orden,$small)
     {
+        $this->small = $small;
         $this->Orden = $orden;
     }
 
 };
 ?>
 
-<div class="bg-white rounded-lg border-[.5px] m-[5px]  px-[5%] py-[5%] gap-3 items-center justify-between flex flex-col transition-all align-middle">
-    <div class="w-full flex flex-row align-middle items-center justify-between">
+<div class="bg-white rounded-lg border-[.5px] m-[5px]  px-[5%] py-[5%] gap-3 items-center justify-between flex transition-all align-middle {{$small? "flex-col":"flex-row" }}">
+    <div class="w-full flex flex-row align-middle items-center {{ $small ? "justify-start": "justify-start" }}">
 
         
         <svg class ="w-15 h-15"
@@ -31,20 +30,21 @@ new class extends Component
                 <p class="text-sm font-normal">        
                     Actividad: {{ $Orden->proyecto->actividad }}
                 </p>
-                <p class="text-sm font-normal">
+                <p class="text-sm font-normal overflow-hidden">
                     Para: {{ $Orden->trabajador->nombre }}
                 </p>
             </div>
         </div>
     </div>
-
-    <div class="rounded-[4px] px-[15px] py-1 bg-cortvRojoBasico shadow-xl inline-flex items-center  gap-2">
-        <span class="text-cortvHueso text-center">
-            Descargar
-        </span>
-        <svg width="13" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M22.75 16.25V20.5833C22.75 21.158 22.5217 21.7091 22.1154 22.1154C21.7091 22.5217 21.158 22.75 20.5833 22.75H5.41667C4.84203 22.75 4.29093 22.5217 3.8846 22.1154C3.47827 21.7091 3.25 21.158 3.25 20.5833V16.25M7.58333 10.8333L13 16.25M13 16.25L18.4167 10.8333M13 16.25V3.25" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-    </div>
+    <a href="{{ route('pdf.orden', $Orden) }}z">
+        <div class="rounded-[4px] px-[15px] py-1 bg-cortvRojoBasico hover:bg-cortvRojoOscuro transition-colors duration-200 shadow-xl inline-flex items-center  gap-2">
+            <span class="text-cortvHueso text-center">
+                Descargar
+            </span>
+            <svg width="13" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M22.75 16.25V20.5833C22.75 21.158 22.5217 21.7091 22.1154 22.1154C21.7091 22.5217 21.158 22.75 20.5833 22.75H5.41667C4.84203 22.75 4.29093 22.5217 3.8846 22.1154C3.47827 21.7091 3.25 21.158 3.25 20.5833V16.25M7.58333 10.8333L13 16.25M13 16.25L18.4167 10.8333M13 16.25V3.25" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+    </a>
     {{-- Live as if you were to die tomorrow. Learn as if you were to live forever. - Mahatma Gandhi --}}
 </div>

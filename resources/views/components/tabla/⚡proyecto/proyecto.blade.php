@@ -1,6 +1,6 @@
 <section >
             <div class="relative  overflow-hidden">
-                <div class=" flex items-center  sm:rounded-lg justify-between gap-2 p-5 flex-col xl:flex-row">
+                <div class=" flex items-center  sm:rounded-lg justify-between gap-1 p-5 flex-col xl:flex-row">
                     <div class="flex w-full">
                         <div class="relative w-full ">
                            
@@ -35,9 +35,12 @@
                 </div>
 
                 <!--Tabla-->
-                <div class="grid grid-cols-1 mx-[2%] xl:grid-cols-2 2xl:grid-cols-3">
+                <div class="grid grid-cols-1 mx-[2%] gap-4 xl:grid-cols-2 2xl:grid-cols-3">
                     @foreach($this->proyectos() as $proyecto)
-                        <livewire:cards.proyecto wire:key="proyecto-{{ $proyecto->id }}" :proyecto="$proyecto" />
+                        <livewire:cards.proyecto 
+                        wire:key="proyecto-{{ $proyecto->id }}" 
+                        :small="true"
+                        :proyecto="$proyecto" />
                     @endforeach
 
                 </div>

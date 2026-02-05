@@ -13,12 +13,12 @@
                     @case(1)
                         @foreach($this->obtenerProyectosRecientes() as $proyecto)
                             <livewire:cards.proyecto 
-                            :proyecto="$proyecto" wire:key="proyecto-{{ $proyecto->id }}"/>
+                            :proyecto="$proyecto" :small="false" wire:key="proyecto-{{ $proyecto->id }}"/>
                         @endforeach
                     @break
                     @case(2)
                         @foreach ($this->ordenes() as $orden)
-                            <livewire:cards.orden :orden="$orden" wire:key="orden-{{ $orden->id }}" />
+                            <livewire:cards.orden :small="false" :orden="$orden" wire:key="orden-{{ $orden->id }}" />
                         @endforeach
                     @break
                 @endswitch

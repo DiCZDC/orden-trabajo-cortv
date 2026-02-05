@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="flex flex-col px-[5%] py-[1%] gap-4 lg:flex-row ">
+    <div class="flex flex-col px-[5%] py-[3%] gap-4 lg:flex-row ">
         <!-- Contenedor Izquierda -->
             <div class="flex flex-col w-full px-[1%] transition-all 2xl:w-1/3 ">
                 <livewire:forms.orden />

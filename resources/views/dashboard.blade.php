@@ -14,12 +14,13 @@
                     <h1 class="text-[25px] font-bold text-cortvGrisTexto ">
                         Bienvenido de Nuevo, {{Auth::user()->name}}!
                     </h1>
-                    <div class="p-[9px] bg-cortvRojoOscuro text-cortvHueso rounded-[8px] flex items-center justify-center">
-                        
-                        <span class="justify-self-center">
-                        Genera una nueva orden aqui
-                        </span>
-                    </div>
+                    <a href="{{ route('ordenes.index') }}">
+                        <div class="p-[9px] bg-cortvRojoBasico text-cortvHueso rounded-[8px] flex items-center justify-center hover:bg-cortvRojoOscuro transition-colors duration-200">
+                            <span class="justify-self-center">
+                            Genera una nueva orden aqui
+                            </span>
+                        </div>
+                    </a>
                     
                 </div>
                 <!--- Izquierda Ultimos Proyectos -->

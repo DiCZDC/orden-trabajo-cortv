@@ -65,7 +65,7 @@
                             </p>
                         @else
                             @foreach ($this->ordenes as $orden)
-                                <livewire:cards.orden :orden="$orden" />
+                                <livewire:cards.orden :orden="$orden" :small="false" />
                             @endforeach
                         @endif
                     </div>

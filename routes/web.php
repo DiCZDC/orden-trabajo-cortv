@@ -1,12 +1,15 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\InicioController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\ProyectoController;
-use App\Http\Controllers\PersonalController;
-use App\Http\Controllers\OrdenController;
+use App\Http\Controllers\{
+    ProfileController,
+    InicioController,
+    DashboardController,
+    ProyectoController,
+    PersonalController,
+    OrdenController,
+    pdfController,
+};
 
 Route::get('/', [InicioController::class, 'index']);
 
