@@ -33,14 +33,14 @@ class TrabajadorSeeder extends Seeder
             $turno = $data[1] != '.' ? $data[1]:null;
             $hora_entrada = $turno !== null ? $data[3]:null;
             $hora_salida = $turno !== null ? $data[4]:null;
-            Trabajador::create([
+            $trabajador = Trabajador::create([
                 'nombre' => strtoupper($data[0]),                
             ]);
 
             if(strtoupper($data[2])!=='PRODUCTOR'){
                 
                 Empleado::create([
-                'trabajador_id' => Trabajador::latest()->first()->id,
+                'trabajador_id' => $trabajador->id,
                 'turno' => $turno,
                 'cargo' => strtoupper($data[2]),
                 'hora_entrada' => $hora_entrada,
@@ -50,7 +50,7 @@ class TrabajadorSeeder extends Seeder
 
             else{
                 Productor::create([
-                    'trabajador_id' => Trabajador::latest()->first()->id,                   
+                    'trabajador_id' => $trabajador->id,                   
                 ]);
                 
             }

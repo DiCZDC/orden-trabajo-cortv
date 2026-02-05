@@ -37,7 +37,7 @@ new class extends Component
     #[Computed()]
     public function productor()
     {
-        return Productor::where('proyecto_id', $this->proyecto_id)->first();
+        return $this->proyecto()->productor;
         
         // Has('ordenes', function ($query) {
         //     $query->where('proyecto_id', $this->proyecto_id);
