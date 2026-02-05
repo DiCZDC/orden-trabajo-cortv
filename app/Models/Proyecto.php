@@ -24,4 +24,11 @@ class Proyecto extends Model
     {
         return $this->hasMany(Orden::class);
     }
+    /**
+     * Un proyecto pertenece a un productor
+     */
+    public function productor()
+    {
+        return $this->belongsTo(Productor::class);
+    }
 }

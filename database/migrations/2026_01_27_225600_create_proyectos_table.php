@@ -14,8 +14,10 @@ return new class extends Migration
         Schema::create('proyectos', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->string('actividad');
+            // $table->string('actividad');
             $table->string('locacion');
+
+            $table->foreignId('productor_id')->constrained('productors')->onDelete('cascade');
             $table->timestamps();
         });
     }
