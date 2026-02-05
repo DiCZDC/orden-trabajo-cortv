@@ -10,7 +10,9 @@ new class extends Component
         $this->small = $small;
         $this->Orden = $orden;
     }
-
+    public function save_data(){
+        session('ordenes.datos',)
+    }
 };
 ?>
 
@@ -36,7 +38,7 @@ new class extends Component
             </div>
         </div>
     </div>
-    <a href="{{ route('pdf.orden', $Orden) }}z">
+    <a href="{{ route('generatePDF') }}">
         <div class="rounded-[4px] px-[15px] py-1 bg-cortvRojoBasico hover:bg-cortvRojoOscuro transition-colors duration-200 shadow-xl inline-flex items-center  gap-2">
             <span class="text-cortvHueso text-center">
                 Descargar

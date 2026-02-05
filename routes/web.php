@@ -34,4 +34,8 @@ Route::get('personal/{id}', [PersonalController::class, 'show'])->middleware(['a
 //Rutas de órdenes
 Route::get('ordenes', [OrdenController::class, 'index'])->middleware(['auth', 'verified'])->name('ordenes.index');
 
+//Ruta para generar PDF de orden de trabajo
+Route::get('ordenes/pdf', [pdfController::class, 'generatePDF'])->middleware(['auth', 'verified'])->name('generatePDF');
+
+
 require __DIR__.'/auth.php';

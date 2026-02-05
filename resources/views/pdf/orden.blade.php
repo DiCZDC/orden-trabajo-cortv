@@ -2,11 +2,28 @@
 :root {
     --font-size: 14px;
 }
-img.logo{
-        width: 200px;
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    
+    .logo-container img{
+        width: 5%;
+    }
+    h1 {
+        flex: 1;
+        text-align: right;
+        margin: 0;
+    }
 }
+.logo-container {
+    text-align: left;
+}
+/* img.logo{
+        width: 200px;
+} */
 img.membrete_v{
-
 }
 body {
     font-family: Arial, sans-serif;
@@ -56,10 +73,33 @@ body {
 
 
 </style>
+@php 
+    $logoPath = public_path('images/cortv_logo.png');
+    if (file_exists($logoPath) && is_readable($logoPath)) {
+        try {
+            $logoData = base64_encode(file_get_contents($logoPath));
+            $logoMime = 'image/png';
+            $showLogo = true;
+        } catch (\Exception $e) {
+            $showLogo = false;
+        }
+    } else {
+        $showLogo = false;
+    }
+@endphp
 <div>
     <body>
-        <img class="logo" src="https://www.oaxaca.gob.mx/comunicacion/wp-content/uploads/sites/28/2023/04/LOGOTIPO-CORTV.jpeg" alt="LOGOTIPO-CORTV">
-        <h1>ORDEN DE TRABAJO</h1>
+        <div class="header">
+            <h1>ORDEN DE TRABAJO</h1>
+            <div class="logo-container">
+                
+                @if(isset($showLogo) && $showLogo)
+                    <img src="data:{{ $logoMime }};base64,{{ $logoData }}" alt="Logo" style="max-width: 200px; height: auto;" >
+                @else
+                    </div style="height: 80px; margin-bottom: 10px;">
+                @endif
+            </div>
+        </div>
         
         <br>
         <!--Nombre del trabajador-->
@@ -170,6 +210,27 @@ body {
             </tr>
             
         </table>
+        <table class="tabla-autorizacion">
+                <thead>
+                    <tr>
+                        <th>FIRMA DEL TRABAJADOR</th>
+                        <th>OPERACIONES</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="firma-espacio"></div>
+                            <p class="nombre-firmante">{{ session('datos_registro.entrega') }}</p>
+                            <p class="cargo-firmante">AUXILIAR DEL DEPTO. DE RECURSOS MATERIALES Y SERVICIOS GENERALES</p>
+                        </td>
+                        <td>
+                            <div class="firma-espacio"></div>
+                            <p class="nombre-firmante">{{ session('datos_registro.solicito') }}</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
     </body>
     <!-- You must be the change you wish to see in the world. - Mahatma Gandhi -->
 </div>
