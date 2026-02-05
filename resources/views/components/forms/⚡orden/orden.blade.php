@@ -85,9 +85,10 @@
                     type="date"
                     id="fecha"
                     value="{{ date('Y-m-d') }}"
-                    min="2000-01-01"
-                    max="{{ date('Y-m-d') }}"
+                    min="2020-01-01"
+                    max=""
                     class="border-cortvBorde border-1 rounded-md p-2 h-[40px] w-full mt-2 text-[16px]"
+                    wire:model.blur="nombre_fecha"
                 />
                 <div>
                     @error('nombre_trabajador')
