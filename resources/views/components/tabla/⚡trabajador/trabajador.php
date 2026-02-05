@@ -1,7 +1,7 @@
 <?php
 
 use Livewire\Component;
-use App\Models\Trabajador;
+use App\Models\Empleado;
 use Livewire\Attributes\Computed;
 new class extends Component
 {
@@ -11,14 +11,14 @@ new class extends Component
     #[Computed()]
     public function areas()
     {
-        return Trabajador::
+        return Empleado::
         pluck('cargo')->
         unique();
     }
     #[Computed()]
     public function trabajadores()
     {
-        return Trabajador::Search($this->search)
+        return Empleado::Search($this->search)
             ->when($this->areaFilter !== '', function ($query) {
                     $query->where('cargo', $this->areaFilter);
                 })

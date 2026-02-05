@@ -20,18 +20,18 @@
                         <p class="text-3xl">
                             Cargo:
                         </p>
-                        <p class="ml-4 text-2xl text-gray-600">
-                            {{ strtoupper($this->trabajador->cargo) }}
-                        </p>
                         
-                        @if($this->trabajador->cargo !== 'PRODUCTOR')
+                        @if($this->trabajador->productor !== null)
+                        <p class="ml-4 text-2xl text-gray-600">
+                            {{ strtoupper($this->trabajador->empleado->cargo) }}
+                        </p>
                             <div class=" flex flex-col justify-between md:flex-row md:gap-10 lg:gap-20">
                                 <div class="flex flex-col">
                                     <p class="text-3xl">
                                         Turno:
                                     </p>
                                     <p class="ml-4 text-2xl text-gray-600">
-                                        {{ strtoupper($this->trabajador->turno) }}
+                                        {{ strtoupper($this->trabajador->empleado->turno) }}
                                     </p>
                                 </div>
                                 <div class="flex flex-col">
@@ -39,7 +39,7 @@
                                         Hora de Entrada:
                                     </p>
                                     <p class="ml-4 text-2xl text-gray-600">
-                                        {{ \Carbon\Carbon::parse($this->trabajador->hora_entrada)->format('H:i')}} HRS
+                                        {{ \Carbon\Carbon::parse($this->trabajador->empleado->hora_entrada)->format('H:i')}} HRS
                                     </p>
                                 </div>
                                 <div class="flex flex-col">
@@ -47,11 +47,16 @@
                                         Hora de Salida:
                                     </p>
                                     <p class="ml-4 text-2xl text-gray-600">
-                                        {{ \Carbon\Carbon::parse($this->trabajador->hora_salida)->format('H:i')}} HRS
+                                        {{ \Carbon\Carbon::parse($this->trabajador->empleado->hora_salida)->format('H:i')}} HRS
                                     </p>
                                 </div>
                             </div>
+                        @else
+                            <p class="ml-4 text-2xl text-gray-600">
+                            PRODUCTOR
+                            </p>
                         @endif
+                        
                     </div>
                 {{-- Tabla de Ultimas Ordenes --}}
                 <div>

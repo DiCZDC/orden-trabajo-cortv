@@ -4,12 +4,12 @@ use Livewire\Component;
 
 new class extends Component
 {
-    protected $trabajador;
+    protected $empleado;
     
 
-    public function mount($trabajador)
+    public function mount($empleado)
     {
-        $this->trabajador = $trabajador;
+        $this->empleado = $empleado;
     }
 
 };
@@ -21,18 +21,18 @@ new class extends Component
     </svg>
     <div class="w-1/2">
         <p class="text-md font-bold ">
-            {{ $this->trabajador->nombre}}
+            {{ $this->empleado->trabajador->nombre}}
         </p>
         <p class="text-sm font-normal">
-            {{ $this->trabajador->cargo }}
+            {{ $this->empleado->cargo }}
         </p>
-        @if($this->trabajador->turno !== '.' && $this->trabajador->turno !== null)
+        @if($this->empleado->turno !== '.' && $this->empleado->turno !== null)
             <p class="text-xs ">
-                {{ $this->trabajador->turno }}
+                {{ $this->empleado->turno }}
             </p>
         @endif
     </div>
-    <a href="{{ route('personal.show', $this->trabajador->id) }}">
+    <a href="{{ route('personal.show', $this->empleado->trabajador->id) }}">
     <div class="rounded-[4px] px-[15px] py-1 bg-cortvRojoBasico hover:bg-cortvRojoOscuro transition-colors duration-200 shadow-xl inline-flex items-center gap-2">
         <svg width="16" height="16" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g clip-path="url(#clip0_9_202)">

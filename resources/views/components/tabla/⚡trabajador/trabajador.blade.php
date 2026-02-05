@@ -38,7 +38,7 @@
                 <!--Tabla-->
                 <div class="grid grid-cols-1 mx-[2%] transition-all xl:grid-cols-2 2xl:grid-cols-3">
                     @foreach($this->trabajadores as $trabajador)
-                        <livewire:cards.trabajador wire:key="trabajador-{{ $trabajador->id }}" :trabajador="$trabajador" />
+                        <livewire:cards.trabajador wire:key="trabajador-{{ $trabajador->id }}" :empleado="$trabajador" />
                     @endforeach
                 </div>
     

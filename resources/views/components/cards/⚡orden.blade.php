@@ -11,7 +11,7 @@ new class extends Component
         $this->Orden = $orden;
     }
     public function save_data(){
-        session('ordenes.datos',)
+        // session('ordenes.datos');
     }
 };
 ?>
@@ -33,7 +33,7 @@ new class extends Component
                     Actividad: {{ $Orden->proyecto->actividad }}
                 </p>
                 <p class="text-sm font-normal overflow-hidden">
-                    Para: {{ $Orden->trabajador->nombre }}
+                    Para: {{ $Orden->empleado->trabajador->nombre }}
                 </p>
             </div>
         </div>

@@ -5,6 +5,8 @@ use App\Models\{
     Proyecto,
     Orden,
     Trabajador,
+    Empleado,
+    Productor,
     };
 use Livewire\Attributes\Computed;
 new class extends Component
@@ -30,18 +32,16 @@ new class extends Component
     #[Computed()]
     public function trabajadores()
     {
-        return Trabajador::where('cargo', '!=', 'PRODUCTOR')
-        ->whereHas('ordenes', function ($query) {
-            $query->where('proyecto_id', $this->proyecto_id);
-        })->get();
+        return Empleado::where('proyecto_id', $this->proyecto_id)->get();
     }
     #[Computed()]
     public function productor()
     {
-        return Trabajador::where('cargo', 'PRODUCTOR')
-        ->whereHas('ordenes', function ($query) {
-            $query->where('proyecto_id', $this->proyecto_id);
-        })->first();
+        return Productor::where('proyecto_id', $this->proyecto_id)->first();
+        
+        // Has('ordenes', function ($query) {
+        //     $query->where('proyecto_id', $this->proyecto_id);
+        // })->first();)
     }
 
 };

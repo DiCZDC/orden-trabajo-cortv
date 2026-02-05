@@ -2,8 +2,11 @@
 
 namespace Database\Factories;
 
-use App\Models\Trabajador;
-use App\Models\Proyecto;
+use App\Models\{
+    Trabajador,
+    Empleado,
+    Proyecto,
+};
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -19,7 +22,7 @@ class OrdenFactory extends Factory
     public function definition(): array
     {
         return [
-            'trabajador_id' => Trabajador::factory(),
+            'empleado_id' => Empleado::factory(),
             'proyecto_id' => Proyecto::factory(),
             'lugar_cita' => fake()->address(),
             'fecha_cita' => fake()->dateTimeBetween('now', '+1 month'),

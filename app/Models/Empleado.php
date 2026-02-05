@@ -25,4 +25,12 @@ class Empleado extends Model
     {
         return $this->belongsTo(Trabajador::class);
     }
+
+
+    public function scopeSearch($query, $nombre)
+    {
+        if ($nombre) {
+            return $query->where('nombre', 'like', '%' . $nombre . '%');
+        }
+    }
 }
