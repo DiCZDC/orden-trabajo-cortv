@@ -31,7 +31,7 @@
                             Productor Responsable:
                         </p>
                         @if ($this->productor !== null)
-                            <livewire:cards.trabajador wire:key="trabajador-{{ $this->productor->id }}" :trabajador="$this->productor" />
+                            <livewire:cards.trabajador wire:key="trabajador-{{ $this->productor->id }}" :empleado="$this->productor" />
                         @else
                             <p class="text-gray-500 text-center border border-gray-300 rounded-md p-2">
                                 No hay registros.

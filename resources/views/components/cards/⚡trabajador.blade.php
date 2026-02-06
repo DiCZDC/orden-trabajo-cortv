@@ -24,13 +24,18 @@ new class extends Component
             {{ $this->empleado->trabajador->nombre}}
         </p>
         <p class="text-sm font-normal">
-            {{ $this->empleado->cargo }}
+            @if($this->empleado instanceof App\Models\Empleado)
+                {{ $this->empleado->cargo }}
+            @else
+                PRODUCTOR
+            @endif
         </p>
-        @if($this->empleado->turno !== '.' && $this->empleado->turno !== null)
+        @if($this->empleado instanceof App\Models\Empleado)
             <p class="text-xs ">
                 {{ $this->empleado->turno }}
             </p>
         @endif
+        
     </div>
     <a href="{{ route('personal.show', $this->empleado->trabajador->id) }}">
     <div class="rounded-[4px] px-[15px] py-1 bg-cortvRojoBasico hover:bg-cortvRojoOscuro transition-colors duration-200 shadow-xl inline-flex items-center gap-2">

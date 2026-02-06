@@ -21,7 +21,7 @@
                             Cargo:
                         </p>
                         
-                        @if($this->trabajador->productor !== null)
+                        @if($this->trabajador->productor === null)
                         <p class="ml-4 text-2xl text-gray-600">
                             {{ strtoupper($this->trabajador->empleado->cargo) }}
                         </p>
