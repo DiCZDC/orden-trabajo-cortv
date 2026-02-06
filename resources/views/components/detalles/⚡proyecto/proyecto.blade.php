@@ -45,15 +45,15 @@
                 <p class="text-3xl mt-10">
                     Trabajadores Adscritos al Evento:
                 </p>
-                <div class="grid grid-cols-1 mx-[2%] xl:grid-cols-2 2xl:grid-cols-3 border border-gray-300 rounded-md p-4">
-                    @if($this->trabajadores->isEmpty())
-                        <p></p>
-                        <p class="text-gray-500 text-center">
-                            No hay trabajadores adscritos a este proyecto.</p>
-                    @endif
-                    @foreach($this->trabajadores as $trabajador)
+                <div class="grid grid-cols-1 mx-[2%] {{ $this->trabajadores->count()!== 0 ? "xl:grid-cols-2 2xl:grid-cols-3" : "" }} border border-gray-300 rounded-md p-4">
+                    
+                    @forelse($this->trabajadores as $trabajador)
                         <livewire:cards.trabajador wire:key="trabajador-{{ $trabajador->id }}" :trabajador="$trabajador" />
-                    @endforeach
+                    @empty
+                        <p class="text-gray-500 text-center">
+                            No hay trabajadores adscritos a este proyecto.
+                        </p>
+                    @endforelse
             </div>
         </div>
     @endif

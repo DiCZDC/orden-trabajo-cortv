@@ -31,4 +31,11 @@ class Proyecto extends Model
     {
         return $this->belongsTo(Productor::class);
     }
+
+    public function scopeSearch($query, $value)
+    {
+        
+        return $query->where('nombre', 'like', '%' . $value . '%')
+            ->orWhere('locacion', 'like', '%' . $value . '%');
+    }
 }

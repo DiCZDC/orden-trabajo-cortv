@@ -11,11 +11,13 @@ use App\Models\{
 new class extends Component
 {
     public $perPage =6;
+    public $search = '';
 
     #[Computed()]
     public function proyectos()
     {
-        return Proyecto::orderBy('created_at','DESC')->paginate($this->perPage);
+        return Proyecto::search($this->search)
+        ->orderBy('created_at','DESC')->paginate($this->perPage);
     }
 
     public function render()

@@ -22,9 +22,9 @@
                         </p>
                         
                         @if($this->trabajador->productor === null)
-                        <p class="ml-4 text-2xl text-gray-600">
-                            {{ strtoupper($this->trabajador->empleado->cargo) }}
-                        </p>
+                            <p class="ml-4 text-2xl text-gray-600">
+                                {{ strtoupper($this->trabajador->empleado->cargo) }}
+                            </p>
                             <div class=" flex flex-col justify-between md:flex-row md:gap-10 lg:gap-20">
                                 <div class="flex flex-col">
                                     <p class="text-3xl">
@@ -59,22 +59,41 @@
                         
                     </div>
                 {{-- Tabla de Ultimas Ordenes --}}
-                <div>
-                    <p class="text-3xl">
-                        Ultimas Ordenes Asignadas:
-                    </p>
-                    <div class="grid grid-cols-1 mx-[2%] xl:grid-cols-2 2xl:grid-cols-3 border border-gray-300 rounded-md p-4">
-                        @if($this->ordenes===null)
-                            <p class="text-gray-500 text-center">
-                                No hay ordenes asignadas a este trabajador.
-                            </p>
-                        @else
-                            @foreach ($this->ordenes as $orden)
-                                <livewire:cards.orden :orden="$orden" :small="false" />
-                            @endforeach
-                        @endif
+                @if ($this->trabajador->productor === null)
+                    <div>
+                        <p class="text-3xl">
+                            Ultimas Ordenes Asignadas:
+                        </p>
+                        <div class="grid grid-cols-1 mx-[2%] {{$this->ordenes->count() !==0 ? "xl:grid-cols-2 2xl:grid-cols-3":""}} border border-gray-300 rounded-md p-4">
+                            
+                                @forelse ($this->ordenes as $orden)
+                                    <livewire:cards.orden :orden="$orden" :small="false" />
+                                @empty
+                                    <p class="text-gray-500 text-center">
+                                        No hay ordenes asignadas a este trabajador.
+                                    </p>
+                                @endforelse
+                            
+                        </div>
                     </div>
-                </div>
+                @else
+                    <div>
+                        <p class="text-3xl">
+                            Ultimos Proyectos Asociados:
+                        </p>
+                        <div class="grid grid-cols-1 mx-[2%] {{$this->proyectos->count() !==0 ? "xl:grid-cols-2 2xl:grid-cols-3":""}} border border-gray-300 rounded-md p-4">
+                            
+                                @forelse ($this->proyectos as $proyecto)
+                                    <livewire:cards.proyecto :proyecto="$proyecto" :small="false" />
+                                @empty
+                                    <p class="text-gray-500 text-center">
+                                        No hay proyectos asignados a este trabajador.
+                                    </p>
+                                @endforelse
+                            
+                        </div>
+                    </div>
+                @endif
 
         </div>
     @endif
