@@ -29,11 +29,11 @@ new class extends Component
                 <p class="text-md font-bold ">
                     {{ $Orden->proyecto->nombre }}
                 </p>
-                <p class="text-sm font-normal">        
-                    Actividad: {{ $Orden->proyecto->actividad }}
-                </p>
                 <p class="text-sm font-normal overflow-hidden">
                     Para: {{ $Orden->empleado->trabajador->nombre }}
+                </p>
+                <p class="text-sm font-normal">        
+                    Fecha de cita: {{ $Orden->fecha_cita->format('M d, Y') }}
                 </p>
             </div>
         </div>

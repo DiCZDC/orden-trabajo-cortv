@@ -3,6 +3,7 @@
 use Livewire\Component;
 use Livewire\Attributes\Computed;
 use Illuminate\Support\Facades\DB;
+use Livewire\WithPagination;
 use App\Models\{
     Proyecto,
 
@@ -10,6 +11,7 @@ use App\Models\{
 
 new class extends Component
 {
+    use WithPagination;
     public $perPage =6;
     public $search = '';
 

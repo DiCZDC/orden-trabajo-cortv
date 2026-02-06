@@ -43,18 +43,18 @@
                 {{-- Tabla de Trabajadores --}}
 
                 <p class="text-3xl mt-10">
-                    Trabajadores Adscritos al Evento:
+                    Trabajadores Adscritos al Evento Actualmente:
                 </p>
                 <div class="grid grid-cols-1 mx-[2%] {{ $this->trabajadores->count()!== 0 ? "xl:grid-cols-2 2xl:grid-cols-3" : "" }} border border-gray-300 rounded-md p-4">
                     
                     @forelse($this->trabajadores as $trabajador)
-                        <livewire:cards.trabajador wire:key="trabajador-{{ $trabajador->id }}" :trabajador="$trabajador" />
+                        <livewire:cards.trabajador wire:key="trabajador-{{ $trabajador->id }}" :empleado="$trabajador" />
                     @empty
                         <p class="text-gray-500 text-center">
                             No hay trabajadores adscritos a este proyecto.
                         </p>
                     @endforelse
-            </div>
+                </div>
         </div>
     @endif
     {{-- When there is no desire, all things are at peace. - Laozi --}}

@@ -9,8 +9,10 @@ use App\Models\{
     Productor,
     };
 use Livewire\Attributes\Computed;
+use Livewire\WithPagination;
 new class extends Component
 {
+    use WithPagination;
     public $proyecto_id;
 
     public function mount($proyecto_id)
@@ -32,16 +34,15 @@ new class extends Component
     #[Computed()]
     public function trabajadores()
     {
-        return Empleado::where('proyecto_id', $this->proyecto_id)->get();
+        return $this->ordenes->where('fecha_cita','>',date('Y-m-d'))
+            ->flatMap(function ($orden) {
+            return [$orden->empleado];
+        })->unique('id');
     }
     #[Computed()]
     public function productor()
     {
         return $this->proyecto()->productor;
-        
-        // Has('ordenes', function ($query) {
-        //     $query->where('proyecto_id', $this->proyecto_id);
-        // })->first();)
     }
 
 };
