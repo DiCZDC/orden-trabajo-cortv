@@ -52,11 +52,6 @@ new class extends Component
                     </defs>
                 </svg>
                 
-                {{-- @else
-                    <span class="text-cortvHueso text-center">
-                        No se asignó ninguna orden
-                    </span>
-                @endif     --}}
                 <span class="text-cortvHueso text-center">
                         Ver
                 </span>

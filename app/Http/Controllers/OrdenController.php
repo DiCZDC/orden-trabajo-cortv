@@ -10,4 +10,8 @@ class OrdenController extends Controller
     {
         return view('ordenes.index');
     }
+    public function show($id)
+    {
+        return view('ordenes.show', ['id' => $id]);
+    }
 }

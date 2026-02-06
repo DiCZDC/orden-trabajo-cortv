@@ -38,15 +38,38 @@ new class extends Component
             </div>
         </div>
     </div>
-    <a href="{{ route('generatePDF') }}">
-        <div class="rounded-[4px] px-[15px] py-1 bg-cortvRojoBasico hover:bg-cortvRojoOscuro transition-colors duration-200 shadow-xl inline-flex items-center  gap-2">
-            <span class="text-cortvHueso text-center">
-                Descargar
-            </span>
-            <svg width="13" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M22.75 16.25V20.5833C22.75 21.158 22.5217 21.7091 22.1154 22.1154C21.7091 22.5217 21.158 22.75 20.5833 22.75H5.41667C4.84203 22.75 4.29093 22.5217 3.8846 22.1154C3.47827 21.7091 3.25 21.158 3.25 20.5833V16.25M7.58333 10.8333L13 16.25M13 16.25L18.4167 10.8333M13 16.25V3.25" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-        </div>
-    </a>
+    
+    <div class="flex items-center flex-row gap-4">
+        <a href="{{ route('ordenes.show', ['id' => $Orden->id]) }}">
+            <div class="rounded-[4px] px-[15px] py-1 bg-cortvRojoBasico hover:bg-cortvRojoOscuro transition-colors h-auto duration-200 shadow-xl inline-flex items-center gap-2">
+                    <svg width="16" height="16" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_9_202)">
+                            <path d="M1.08337 13C1.08337 13 5.41671 4.33331 13 4.33331C20.5834 4.33331 24.9167 13 24.9167 13C24.9167 13 20.5834 21.6666 13 21.6666C5.41671 21.6666 1.08337 13 1.08337 13Z" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M13 16.25C14.795 16.25 16.25 14.7949 16.25 13C16.25 11.2051 14.795 9.74998 13 9.74998C11.2051 9.74998 9.75004 11.2051 9.75004 13C9.75004 14.7949 11.2051 16.25 13 16.25Z" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_9_202">
+                            <rect width="26" height="26" fill="white"/>
+                            </clipPath>
+                        </defs>
+                    </svg>
+                    
+                    <span class="text-cortvHueso text-center">
+                            Ver
+                    </span>
+                </div>
+            </a>
+        </a>
+        <a href="{{ route('ordenes.pdf') }}">
+            <div class="rounded-[4px] px-[15px] py-1 bg-cortvRojoBasico hover:bg-cortvRojoOscuro transition-colors h-auto duration-200 shadow-xl inline-flex items-center gap-2">
+                <span class="text-cortvHueso text-center">
+                    Descargar
+                </span>
+                <svg width="13" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M22.75 16.25V20.5833C22.75 21.158 22.5217 21.7091 22.1154 22.1154C21.7091 22.5217 21.158 22.75 20.5833 22.75H5.41667C4.84203 22.75 4.29093 22.5217 3.8846 22.1154C3.47827 21.7091 3.25 21.158 3.25 20.5833V16.25M7.58333 10.8333L13 16.25M13 16.25L18.4167 10.8333M13 16.25V3.25" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+        </a>
+    </div>
     {{-- Live as if you were to die tomorrow. Learn as if you were to live forever. - Mahatma Gandhi --}}
 </div>

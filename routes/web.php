@@ -31,11 +31,13 @@ Route::get('proyectos/{id}', [ProyectoController::class, 'show'])->middleware(['
 Route::get('/personal', [PersonalController::class, 'index'])->middleware(['auth', 'verified'])->name('personal.index');
 Route::get('personal/{id}', [PersonalController::class, 'show'])->middleware(['auth', 'verified'])->name('personal.show');
 
+//Ruta para generar PDF de orden de trabajo
+Route::get('ordenes/pdf', [pdfController::class, 'generatePDF'])->middleware(['auth', 'verified'])->name('ordenes.pdf');
+
 //Rutas de órdenes
 Route::get('ordenes', [OrdenController::class, 'index'])->middleware(['auth', 'verified'])->name('ordenes.index');
+Route::get('ordenes/{id}', [OrdenController::class, 'show'])->middleware(['auth', 'verified'])->name('ordenes.show');
 
-//Ruta para generar PDF de orden de trabajo
-Route::get('ordenes/pdf', [pdfController::class, 'generatePDF'])->middleware(['auth', 'verified'])->name('generatePDF');
 
 
 require __DIR__.'/auth.php';

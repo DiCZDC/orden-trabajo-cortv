@@ -1,236 +1,387 @@
-<style>
-:root {
-    --font-size: 14px;
-}
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 20px;
-    
-    .logo-container img{
-        width: 5%;
-    }
-    h1 {
-        flex: 1;
-        text-align: right;
-        margin: 0;
-    }
-}
-.logo-container {
-    text-align: left;
-}
-/* img.logo{
-        width: 200px;
-} */
-img.membrete_v{
-}
-body {
-    font-family: Arial, sans-serif;
-    margin: 40px;
+<!DOCTYPE html>
+<html lang="es">
 
-    h1 {
-        text-align: right;
-        font-size: 16px;
-        margin-bottom: 20px;
-    }
-    b {
-        font-size: var(--font-size);
-        font-weight: bold;
-    }
-    b.sub {
-        font-size: var(--font-size);
-        font-weight: 500;
-        margin-right: 5px;
-    }
-    i
-    {
-        font-size: var(--font-size);
-        color: grey;
-        text-decoration: underline;
-        font-style: italic;
-    }
-    tr.firma{
-        td{
-            padding-top: 60px;
-            color: grey;
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Salidas del inventario</title>
+    <style>
+        /* Reset - basado en salidas.css */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @page {
+            margin: 10mm 12mm 15mm 12mm;
+        }
+
+        body {
+            font-size: 12px;
+            margin: 0;
+            padding: 0;
+        }
+
+        main {
+            width: 100%;
+        }
+
+        /* Header - basado en salidas.css */
+        .header {
+            width: 100%;
             text-align: center;
-            font-size: var(--font-size);
+            margin-bottom: 15px;
+        }
+
+        .tabla-logos {
+            text-align: center;
+            margin-bottom: 3px;
+        }
+
+        .tabla-logos table {
+            width: 80%;
+            margin: 0 auto;
+            border: none;
+        }
+
+        .tabla-logos td {
+            text-align: center;
+            border: none;
+            padding: 5px 20px;
+            width: 50%;
+        }
+
+        .tabla-logos img {
+            max-width: 180px;
+            height: auto;
+        }
+
+        /* Corporación - basado en salidas.css */
+        .corporacion {
+            text-align: center;
+            margin-bottom: 10px;
+            margin-top: -40px;
+        }
+
+        .corporacion h1 {
+            font-weight: bold;
+            font-size: 18px;
+            margin: 0 0 5px 0;
+        }
+
+        .corporacion h2 {
+            font-weight: normal;
+            font-size: 14px;
+            margin: 0;
+        }
+
+        /* Solicitud */
+        .solicitud {
+            width: 100%;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .titulo-documento {
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 10px;
+            padding: 3px;
+        }
+
+        /* Información - basado en salidas.css */
+        .informacion-s {
+            width: 100%;
+            margin-top: 8px;
+            margin-bottom: 15px;
+        }
+
+        .informacion-s table {
+            width: 90%;
+            margin: 0 auto;
+            border: none;
+        }
+
+        .informacion-s td {
+            text-align: center;
+            vertical-align: top;
+            padding: 3px 10px;
+            font-size: 12px;
+            border: none;
+        }
+
+        .informacion-s .label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        /* Tabla de productos - basado en salidas.css */
+        .tabla-contenido {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .tabla-productos {
+            width: 85%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        .tabla-productos thead {
+            display: table-header-group;
+        }
+
+        .tabla-productos thead th {
+            background-color: #AE2B2F;
+            color: white;
+            padding: 6px;
+            border: 1px solid #888;
+            font-weight: bold;
+            font-size: 11px;
+        }
+
+        .tabla-productos tbody td {
+            padding: 5px;
+            border: 1px solid #888;
+            text-align: center;
+            vertical-align: middle;
+            font-size: 10px;
+        }
+
+        .tabla-productos tr {
+            page-break-inside: avoid;
+        }
+
+        /* Autorización - basado en salidas.css */
+        .autorizacion {
+            width: 100%;
+            margin-top: 25px;
+            page-break-inside: avoid;
+        }
+
+        .tabla-autorizacion {
+            width: 85%;
+            margin: 0 auto 8px auto;
+            border-collapse: collapse;
+            text-align: center;
+            table-layout: fixed;
+        }
+
+        .tabla-autorizacion th {
+            background-color: #AE2B2F;
+            color: white;
+            font-weight: bold;
+            padding: 6px;
+            /* border: 1px solid #888; */
+            width: 50%;
+            font-size: 11px;
+        }
+
+        .tabla-autorizacion td {
+            height: 100px;
+            vertical-align: bottom;
+            padding: 8px;
+            /* border: 1px solid #888; */
+            width: 50%;
+        }
+
+        .firma-espacio {
+            height: 50px;
             border-bottom: 1px solid black;
-            padding: 0px 10px;
+            margin: 0 auto 8px auto;
+            width: 75%;
         }
-    }
-    tr.cargo{
-        td{
-            padding-top: 60px;
-            text-align: center;
-            font-size: var(--font-size);
-            padding: 5px 10px;
+
+        .nombre-firmante {
+            /* font-weight: bold; */
+            margin: 0;
+            font-size: 10px;
+            color: #454444;
         }
-    }
-}
 
-
-
-</style>
-@php 
-    $logoPath = public_path('images/cortv_logo.png');
-    if (file_exists($logoPath) && is_readable($logoPath)) {
-        try {
-            $logoData = base64_encode(file_get_contents($logoPath));
-            $logoMime = 'image/png';
-            $showLogo = true;
-        } catch (\Exception $e) {
-            $showLogo = false;
+        .cargo-firmante {
+            font-weight: bold;
+            margin: 0;
+            margin-top: 3px;
+            font-size: 9px;
         }
-    } else {
-        $showLogo = false;
-    }
-@endphp
-<div>
-    <body>
+
+        /* Saltos de página */
+        .page-break {
+            page-break-after: always;
+        }
+
+        .avoid-break {
+            page-break-inside: avoid;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <!-- HEADER -->
         <div class="header">
-            <h1>ORDEN DE TRABAJO</h1>
-            <div class="logo-container">
-                
-                @if(isset($showLogo) && $showLogo)
-                    <img src="data:{{ $logoMime }};base64,{{ $logoData }}" alt="Logo" style="max-width: 200px; height: auto;" >
-                @else
-                    </div style="height: 80px; margin-bottom: 10px;">
-                @endif
+            {{-- Logos --}}
+            <div class="tabla-logos">
+                <table>
+                    <tr>
+                        @php 
+                            // Intentar múltiples rutas para compatibilidad con NativePHP
+                            $possiblePaths = [
+                                public_path('images/logo_oaxaca.png'),
+                                base_path('public/images/logo_oaxaca.png'),
+                                resource_path('images/logo_oaxaca.png'),
+                            ];
+                            
+                            $logo1Data = null;
+                            $logo1Mime = 'image/png';
+                            
+                            foreach ($possiblePaths as $path) {
+                                if (file_exists($path) && is_readable($path)) {
+                                    try {
+                                        $logo1Data = base64_encode(file_get_contents($path));
+                                        break;
+                                    } catch (\Exception $e) {
+                                        continue;
+                                    }
+                                }
+                            }
+                            
+                            // Logo CORTV
+                            $possiblePaths2 = [
+                                public_path('images/logo_cortv.png'),
+                                base_path('public/images/logo_cortv.png'),
+                                resource_path('images/logo_cortv.png'),
+                            ];
+                            
+                            $logo2Data = null;
+                            $logo2Mime = 'image/png';
+                            
+                            foreach ($possiblePaths2 as $path) {
+                                if (file_exists($path) && is_readable($path)) {
+                                    try {
+                                        $logo2Data = base64_encode(file_get_contents($path));
+                                        break;
+                                    } catch (\Exception $e) {
+                                        continue;
+                                    }
+                                }
+                            }
+                        @endphp
+                        <td>
+                            @if($logo1Data)
+                                <img src="data:{{ $logo1Mime }};base64,{{ $logo1Data }}" alt="Logo Oaxaca">
+                            @endif
+                        </td>
+                        <td>
+                            @if($logo2Data)
+                                <img src="data:{{ $logo2Mime }};base64,{{ $logo2Data }}" alt="Logo CORTV">
+                            @endif
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="corporacion">
+                <h1>
+                    <b>
+                        ORDEN DE TRABAJO
+                    </b>
+                </h1>
             </div>
         </div>
-        
-        <br>
-        <!--Nombre del trabajador-->
-            <b>NOMBRE:</b> 
-            <i>{{$nombre}}</i>
-        <br>
-        <!--Cargo del trabajador-->
-            <b>CARGO:</b>
-            <i>{{$cargo}}</i>
-        <br>
-        <!--Modalidad de contrato-->
-            <b>MODALIDAD DE CONTRATO:</b>
-            
-            <b class="sub">CONTRATO:</b>
-            <i>{{$contrato ? 'X' : ' '}}</i>
 
-            <b class="sub">CONFIANZA:</b>
-            <i >{{$contrato ? ' ' : 'X'}}</i>
-        <br>
-        <!--Area de adscripcion-->
-            <b>AREA DE ADSCRIPCION:</b> 
-            <b class="sub">CORTV:</b>
-            <i>{{$area === 'CORTV' ? 'X' : ' '}}</i>
-            <b class="sub">TV:</b>
-            <i>{{$area === 'TV' ? 'X' : ' '}}</i>
-            <b class="sub">RADIO:</b>
-            <i>{{$area === 'RADIO' ? 'X' : ' '}}</i>
-        <br>
-            <b>HORARIO HABITUAL:</b> 
-            <i>{{$hora_inicio}} - {{$hora_fin}}</i>
-        <br>
-            <b>FECHA DE SOLICITUD:</b>
-            <i>{{$fecha_solicitud}}</i>
-        <br>
-            <b>FECHA DE LLAMADO:</b>
-            <i>{{$fecha_llamado}}</i>
-        <br>
-            <b>HORA DE LLAMADO:</b>
-            <i>{{$hora_llamado}}</i>
-        <br>
-            <b>LUGAR DE CITA:</b>
-            <i>{{$lugar_cita}}</i>
-        <br>
-            <b>LOCACIONES:</b>
-            <i>{{$locacion}}</i>
-        <br>
-            <b>ACTIVIDADES:</b>
-            <i>{{$actividades}}</i>
-        <br>
-            <b>NOMBRE DEL PROYECTO:</b>
-            <i>{{$nombre_proyecto}}</i>
-        <br>
-            <b>PRODUCTOR:</b>
-            <i>{{$productor}}</i>
-        <br>
-            <b>DIRECTOR:</b>
-            <i>{{$director}}</i>
-        <br>
-            <b>ASISTENTE:</b>
-            <i>{{$asistente}}</i>
-        <br>
-            <b>HORA DE CATERING:</b>
-            <i>{{$hora_catering}}</i>
-        <br>
-            <b>HORA DE REINICIO DE GRABACION:</b>
-            <i>{{$hora_reinicio}}</i>
-        <br>
-            <b>HORA DE ULTIMO TIRO:</b>
-            <i>{{$hora_ultimo_tiro}}</i>
-        <br>
-            <b>OBSERVACIONES:</b>
-            <i>{{$observaciones}}</i>
-        <table>
-            <tr class="firma">
-                <td>
-                    {{$nombre}}
-                </td>
-                
-                <td>
-                    ING. {{$operaciones_nombre}}
-                </td>
-            </tr>
-            <tr class="cargo">
-                <td>
-                    FIRMA DEL TRABAJADOR
-                </td>
-                <td>
-                    OPERACIONES
-                </td>
-            </tr>
+        <!-- DATOS DEL DOCUMENTO -->
+        <div class="solicitud">
+            <div class="titulo-documento">
+                {{ session('datos_registro.formato') }}
+            </div>
 
-            <tr class="firma">
-                <td >
-                    {{$productor}}
-                </td>
-                
-                <td>
-                    LIC. {{$director}}
-                </td>
-            </tr>
-            <tr class="cargo">
-                <td>
-                    PRODUCTOR
-                </td>
-                <td>
-                    Vo.Bo. DIRECTOR
-                </td>
-            </tr>
-            
-        </table>
-        <table class="tabla-autorizacion">
-                <thead>
+            {{-- <div class="informacion-s">
+                <table>
                     <tr>
-                        <th>FIRMA DEL TRABAJADOR</th>
-                        <th>OPERACIONES</th>
+                        <td>
+                            <span class="label">Área que solicita:</span>
+                            <span>{{ session('datos_registro.area') }}</span>
+                        </td>
+                        <td>
+                            <span class="label">Nombre:</span>
+                            <span>{{ session('datos_registro.nombre') }}</span>
+                        </td>
+                        <td>
+                            <span class="label">Fecha:</span>
+                            <span>{{ date('d/m/Y') }}</span>
+                        </td>
+                        <td>
+                            <span class="label">Categoría:</span>
+                            <span>{{ session('datos_registro.categoria') }}</span>
+                        </td>
                     </tr>
-                </thead>
+                </table>
+            </div> --}}
+        </div>
+
+
+
+        <!-- SECCIÓN DE FIRMAS -->
+        <div class="autorizacion avoid-break">
+            <table class="tabla-autorizacion">
+
                 <tbody>
                     <tr>
                         <td>
                             <div class="firma-espacio"></div>
-                            <p class="nombre-firmante">{{ session('datos_registro.entrega') }}</p>
-                            <p class="cargo-firmante">AUXILIAR DEL DEPTO. DE RECURSOS MATERIALES Y SERVICIOS GENERALES</p>
+                            <p class="nombre-firmante">{{ strtoupper(session('ultima_orden.nombre')) }}</p>
+                            <p class="cargo-firmante"> 
+                                <b>
+                                    FIRMA DEL TRABAJADOR
+                                </b>
+                             </p>
+
                         </td>
                         <td>
                             <div class="firma-espacio"></div>
-                            <p class="nombre-firmante">{{ session('datos_registro.solicito') }}</p>
+                            <p class="nombre-firmante">{{ strtoupper(session('ultima_orden.operaciones_nombre')) }}</p>
+                            <p class="cargo-firmante">
+                                <b>
+                                    OPERACIONES
+                                </b>
+                            </p>
                         </td>
                     </tr>
                 </tbody>
             </table>
-    </body>
-    <!-- You must be the change you wish to see in the world. - Mahatma Gandhi -->
-</div>
+
+            <table class="tabla-autorizacion">
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="firma-espacio"></div>
+                            <p class="nombre-firmante">{{ strtoupper(session('ultima_orden.productor')) }}</p>
+                            <p class="cargo-firmante">
+                                <b>
+                                    PRODUCTOR
+                                </b>
+                            </p>
+                        </td>
+                        <td>
+                            <div class="firma-espacio"></div>
+                            <p class="nombre-firmante">LIC.  {{ strtoupper(session('ultima_orden.director')) }}</p>
+                            <p class="cargo-firmante">
+                                <b>
+                                    Vo.Bo. DIRECTOR
+                                </b>
+                            </p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+</body>
+
+</html>
