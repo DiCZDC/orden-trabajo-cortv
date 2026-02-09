@@ -12,7 +12,7 @@ class ProductorController extends Controller
      */
     public function index()
     {
-        //
+        return view('productor.index');
     }
 
     /**

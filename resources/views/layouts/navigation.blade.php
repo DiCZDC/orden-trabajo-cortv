@@ -33,6 +33,11 @@
                                 {{ __('Personal Registrado') }}
                             </x-nav-link>
                         </div>
+                        <div class="hidden space-x-8 sm:-my-px md:ms-10 md:flex">
+                            <x-nav-link class="text-gray-600" :href="route('productores.index')" :active="request()->routeIs('productores.index')">
+                                {{ __('Productores') }}
+                            </x-nav-link>
+                        </div>
                 @endauth
             </div>
 
@@ -103,6 +108,9 @@
                     </x-responsive-nav-link>
                     <x-responsive-nav-link :href="route('personal.index')" :active="request()->routeIs('personal.index')">
                         {{ __('Personal Registrado') }}
+                    </x-responsive-nav-link>
+                    <x-responsive-nav-link :href="route('productores.index')" :active="request()->routeIs('productores.index')">
+                        {{ __('Productores') }}
                     </x-responsive-nav-link>
             </div>
             @endauth
