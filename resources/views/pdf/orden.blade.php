@@ -434,7 +434,7 @@
                         </td>
                         <td>
                             <div class="firma-espacio"></div>
-                            <p class="nombre-firmante">LIC.  {{ strtoupper(session('ultima_orden.director')) }}</p>
+                            <p class="nombre-firmante">{{ strtoupper(session('ultima_orden.director')) }}</p>
                             <p class="cargo-firmante">
                                 <b>
                                     Vo.Bo. DIRECTOR

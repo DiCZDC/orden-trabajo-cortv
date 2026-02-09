@@ -4,10 +4,13 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Orden;
-use App\Models\Empleado;
+use App\Models\{
+    Orden,
+    Empleado
+    };
 use App\Models\Proyecto;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Str;
 
 class OrdenSeeder extends Seeder
 {
@@ -31,33 +34,6 @@ class OrdenSeeder extends Seeder
         }
 
         // Crear órdenes de ejemplo
-        $ordenes = [
-            [
-                'empleado_id' => $empleados->random()->id,
-                'proyecto_id' => $proyectos->where('nombre', 'Noticiero Matutino')->first()?->id ?? $proyectos->first()->id,
-                'lugar_cita' => 'Estudio A - Planta baja',
-                'fecha_cita' => now()->addDays(1),
-                'fecha_solicitud' => now(),
-                'actividad' => 'Transmisión en vivo',
-            ],
-            [
-                'empleado_id' => $empleados->random()->id,
-                'proyecto_id' => $proyectos->where('nombre', 'Documental Cultural')->first()?->id ?? $proyectos->first()->id,
-                'lugar_cita' => 'Centro Histórico - Plaza Principal',
-                'fecha_cita' => now()->addDays(3),
-                'fecha_solicitud' => now(),
-                'actividad' => 'Grabación de escenas culturales',
-
-            ],
-            [
-                'empleado_id' => $empleados->random()->id,
-                'proyecto_id' => $proyectos->where('nombre', 'Programa Deportivo')->first()?->id ?? $proyectos->first()->id,
-                'lugar_cita' => 'Estadio Municipal - Entrada principal',
-                'fecha_cita' => now()->addDays(5),
-                'fecha_solicitud' => now()->subDay(),
-                'actividad' => 'Producción a gran escala de evento deportivo',    
-            ],
-        ];
         for ($i=0; $i < 20; $i++) { 
             $orden_noticiero = [
                 'empleado_id' => $empleados->random()->id,
@@ -66,6 +42,11 @@ class OrdenSeeder extends Seeder
                 'fecha_cita' => now()->addDays(1),
                 'fecha_solicitud' => now(),
                 'actividad' => 'Transmisión en vivo de noticias',
+                'hora_primer_tiro' => '08:00',
+                'hora_catering' => '10:00',
+                'hora_reinicio' => '10:30',
+                'hora_ultimo_tiro' => '12:00',
+                'observaciones' => fake()->sentence(),
             ];
             Orden::create($orden_noticiero);
         }
@@ -77,6 +58,11 @@ class OrdenSeeder extends Seeder
                 'fecha_cita' => now()->addDays(3),
                 'fecha_solicitud' => now(),
                 'actividad' => 'Grabación de escenas culturales',
+                'hora_primer_tiro' => '08:00',
+                'hora_catering' => '10:00',
+                'hora_reinicio' => '10:30',
+                'hora_ultimo_tiro' => '12:00',
+                'observaciones' => fake()->sentence(),
             ];  
             Orden::create($orden_documental);
         }
@@ -88,6 +74,11 @@ class OrdenSeeder extends Seeder
                 'fecha_cita' => now()->addDays(5),
                 'fecha_solicitud' => now()->subDay(),
                 'actividad' => 'Instalación de equipos para evento deportivo',
+                'hora_primer_tiro' => '08:00',
+                'hora_catering' => '10:00',
+                'hora_reinicio' => '10:30',
+                'hora_ultimo_tiro' => '12:00',
+                'observaciones' => fake()->sentence(),
 
             ];
             Orden::create($orden_deportivo);
