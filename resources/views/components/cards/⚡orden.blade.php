@@ -43,7 +43,7 @@ new class extends Component
             'director' => 'LIC. DIANA ISIS MOLINA DOMINGUEZ',
         ]);
         // return (new pdfController())->generatePDF($this->Orden, $this->empleado);
-        return redirect()->route('ordenes.pdf');
+        $this->js("window.open('".route('ordenes.pdf')."', '_blank')");
     }
     #[Computed()]
     public function empleado()
