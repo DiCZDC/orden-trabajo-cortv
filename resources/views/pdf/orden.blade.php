@@ -288,9 +288,7 @@
 
             <div class="corporacion">
                 <h1>
-                    <b>
                         ORDEN DE TRABAJO
-                    </b>
                 </h1>
             </div>
         </div>
@@ -299,34 +297,100 @@
         <div class="solicitud">
             <div class="titulo-documento">
                 {{ session('datos_registro.formato') }}
-            </div>
+            {{-- </div>
 
-            {{-- <div class="informacion-s">
-                <table>
-                    <tr>
-                        <td>
-                            <span class="label">Área que solicita:</span>
-                            <span>{{ session('datos_registro.area') }}</span>
-                        </td>
-                        <td>
-                            <span class="label">Nombre:</span>
-                            <span>{{ session('datos_registro.nombre') }}</span>
-                        </td>
-                        <td>
-                            <span class="label">Fecha:</span>
-                            <span>{{ date('d/m/Y') }}</span>
-                        </td>
-                        <td>
-                            <span class="label">Categoría:</span>
-                            <span>{{ session('datos_registro.categoria') }}</span>
-                        </td>
-                    </tr>
-                </table>
-            </div> --}}
-        </div>
+                <div class="informacion-s">
+                    <table>
+                        <tr>
+                            <td>
+                                <span class="label">Área que solicita:</span>
+                                <span>{{ session('datos_registro.area') }}</span>
+                            </td>
+                            <td>
+                                <span class="label">Nombre:</span>
+                                <span>{{ session('datos_registro.nombre') }}</span>
+                            </td>
+                            <td>
+                                <span class="label">Fecha:</span>
+                                <span>{{ date('d/m/Y') }}</span>
+                            </td>
+                            <td>
+                                <span class="label">Categoría:</span>
+                                <span>{{ session('datos_registro.categoria') }}</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+        </div> --}}
+        <!--Nombre del trabajador-->
+            <b>NOMBRE:</b> 
+            <i>{{strtoupper(session('ultima_orden.nombre'))}}</i>
+        <br>
+        <!--Cargo del trabajador-->
+            <b>CARGO:</b>
+            <i>{{strtoupper(session('ultima_orden.cargo'))}}</i>
+        <br>
+        <!--Modalidad de contrato-->
+            <b>MODALIDAD DE CONTRATO:</b>
+            
+            <b class="sub">CONTRATO:</b>
+            <i>{{session('ultima_orden.contrato') ? 'X' : ' '}}</i>
 
-
-
+            <b class="sub">CONFIANZA:</b>
+            <i >{{session('ultima_orden.contrato') ? ' ' : 'X'}}</i>
+        <br>
+            <b>AREA DE ADSCRIPCION:</b> 
+                <b class="sub">CORTV:</b>
+                <i>{{session('ultima_orden.area') === 'CORTV' ? 'X' : ' '}}</i>
+                <b class="sub">TV:</b>
+                <i>{{session('ultima_orden.area') === 'TV' ? 'X' : ' '}}</i>
+                <b class="sub">RADIO:</b>
+                <i>{{session('ultima_orden.area') === 'RADIO' ? 'X' : ' '}}</i>
+        <br>
+        <b>HORARIO HABITUAL:</b> 
+            <i>{{ date('H:i', strtotime(session('ultima_orden.hora_inicio'))) }} - {{ date('H:i', strtotime(session('ultima_orden.hora_fin'))) }} hrs.</i>
+        <br>
+            <b>FECHA DE SOLICITUD:</b>
+            <i>{{session('ultima_orden.fecha_solicitud')}}</i>
+        <br>
+            <b>FECHA DE LLAMADO:</b>
+            <i>{{session('ultima_orden.fecha_llamado')}}</i>
+        <br>
+            <b>HORA DE LLAMADO:</b>
+            <i>{{session('ultima_orden.hora_llamado')}} hrs.</i>
+        <br>
+            <b>LUGAR DE CITA:</b>
+            <i>{{session('ultima_orden.lugar_cita')}}</i>
+        <br>
+            <b>LOCACIONES:</b>
+            <i>{{session('ultima_orden.locacion')}}</i>
+        <br>
+            <b>ACTIVIDADES:</b>
+            <i>{{session('ultima_orden.actividades')}}</i>
+        <br>
+            <b>NOMBRE DEL PROYECTO:</b>
+            <i>{{session('ultima_orden.nombre_proyecto')}}</i>
+        <br>
+            <b>PRODUCTOR:</b>
+            <i>{{session('ultima_orden.productor')}}</i>
+        <br>
+            <b>DIRECTOR:</b>
+            <i>{{session('ultima_orden.director')}}</i>
+        <br>
+            <b>ASISTENTE:</b>
+            <i>{{session('ultima_orden.asistente')}}</i>
+        <br>
+            <b>HORA DE CATERING:</b>
+            <i>{{session('ultima_orden.hora_catering')}}</i>
+        <br>
+            <b>HORA DE REINICIO DE GRABACION:</b>
+            <i>{{session('ultima_orden.hora_reinicio')}}</i>
+        <br>
+            <b>HORA DE ULTIMO TIRO:</b>
+            <i>{{session('ultima_orden.hora_ultimo_tiro')}}</i>
+        <br>
+            <b>OBSERVACIONES:</b>
+            <i>{{session('ultima_orden.observaciones')}}</i>
         <!-- SECCIÓN DE FIRMAS -->
         <div class="autorizacion avoid-break">
             <table class="tabla-autorizacion">
