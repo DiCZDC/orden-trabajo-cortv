@@ -29,6 +29,15 @@ new class extends Component
     #[Validate('required',message: 'Seleccione una fecha')]
     public $nombre_fecha = '';
 
+    public $hora_primer_tiro = '';
+    public $hora_catering = '';
+    public $hora_reinicio = '';
+    public $hora_ultimo_tiro = '';  
+
+    #[Validate('required',message: 'Por favor ingrese una hora de llamado')]
+    public $hora_llamado = '';
+
+    public $observaciones = '';
 
     public function save(){
         $this->validate();
@@ -43,9 +52,16 @@ new class extends Component
             'empleado_id' => $trabajador->id,
             'proyecto_id' => $proyecto->id,
             'fecha_solicitud' => now(),
+            'observaciones' => $this->observaciones,
+            'hora_primer_tiro' => $this->hora_primer_tiro,
+            'hora_catering' => $this->hora_catering,
+            'hora_reinicio' => $this->hora_reinicio,
+            'hora_ultimo_tiro' => $this->hora_ultimo_tiro,
+            'hora_llamado' => $this->hora_llamado,
+
         ]);
 
-        $this->reset(['nombre_locacion', 'nombre_actividad', 'nombre_fecha', 'nombre_trabajador', 'nombre_proyecto']);
+        $this->reset();
 
         return redirect()->route('ordenes.index')->with('success', 'Orden de trabajo creada exitosamente.');   
 }

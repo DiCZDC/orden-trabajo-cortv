@@ -20,6 +20,12 @@ class Orden extends Model
         'lugar_cita',
         'fecha_cita',
         'fecha_solicitud',
+        'hora_llamado',
+        'hora_primer_tiro',
+        'hora_catering',
+        'hora_reinicio',
+        'hora_ultimo_tiro',
+        'observaciones',
     ];
 
     protected $casts = [

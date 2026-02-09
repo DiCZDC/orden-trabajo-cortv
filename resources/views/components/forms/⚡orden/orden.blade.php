@@ -173,8 +173,41 @@
                 </div>
             </div> 
 
-           
-            <!-- boton de Enviar  -->
+            <div>
+                <label for="hora_llamado" class="flex flex-col gap-1 mb-2"> 
+                    <span> Hora de Llamado </span>
+                </label>
+
+                <input type="time" id="hora_llamado" name="hora_llamado" wire:model.blur="hora_llamado"
+                            class="border-cortvBorde border-1 rounded-md p-2 h-[40px] align-center
+                            text-center text-[16px] w-full text-gray-500">
+                
+                <div>
+                    @error('hora_llamado')
+                            <span class="text-red-500 text-sm">{{ $message }}</span>
+                    @enderror
+                </div>
+            </div> 
+
+
+            <div>
+                <label for="observaciones" class="flex flex-col gap-1 mb-2"> 
+                    <span> Observaciones </span>
+                </label>
+
+                <textarea id="observaciones" name="observaciones" wire:model.blur="observaciones"
+                            class="border-cortvBorde border-1 rounded-md p-2 h-[40px] align-center
+                            text-center text-[16px] w-full text-gray-500">
+                </textarea>
+                
+                <div>
+                    @error('observaciones')
+                            <span class="text-red-500 text-sm">{{ $message }}</span>
+                    @enderror
+                </div>
+            </div> 
+
+                       <!-- boton de Enviar  -->
 
             <div class="mt-1">
                 <button type="submit"
