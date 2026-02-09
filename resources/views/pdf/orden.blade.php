@@ -381,16 +381,16 @@
             <i>{{session('ultima_orden.asistente')}}</i>
         <br>
             <b>HORA DE CATERING:</b>
-            <i>{{session('ultima_orden.hora_catering')}}</i>
+            <i>{{session('ultima_orden.hora_catering')}} hrs.</i>
         <br>
             <b>HORA DE REINICIO DE GRABACION:</b>
-            <i>{{session('ultima_orden.hora_reinicio')}}</i>
+            <i>{{session('ultima_orden.hora_reinicio')}} hrs.</i>
         <br>
             <b>HORA DE ULTIMO TIRO:</b>
-            <i>{{session('ultima_orden.hora_ultimo_tiro')}}</i>
+            <i>{{session('ultima_orden.hora_ultimo_tiro')}} hrs.</i>
         <br>
             <b>OBSERVACIONES:</b>
-            <i>{{session('ultima_orden.observaciones')}}</i>
+            <i>{{session('ultima_orden.observaciones')}} hrs.</i>
         <!-- SECCIÓN DE FIRMAS -->
         <div class="autorizacion avoid-break">
             <table class="tabla-autorizacion">
