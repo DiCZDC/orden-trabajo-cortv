@@ -26,6 +26,7 @@ return new class extends Migration
             $table->string('locacion')->nullable();
             
             $table->date('fecha_cita');
+            $table->time('hora_llamado');
             
             $table->date('fecha_solicitud');
             
