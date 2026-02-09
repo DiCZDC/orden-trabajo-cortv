@@ -16,6 +16,9 @@ new class extends Component
     #[Validate('exists:trabajadors,nombre', message: 'El trabajador seleccionado no es válido o no existe')]
     public $nombre_trabajador = '';
 
+    #[Validate('required',message: 'Ingrese una actividad')]    
+    public $nombre_actividad = '';
+
     #[Validate('required',message: 'Seleccione una locación')]
     public $nombre_locacion = '';
 
@@ -35,13 +38,14 @@ new class extends Component
 
         Orden::create([
             'lugar_cita' => $this->nombre_locacion,
+            'actividad' => $this->nombre_actividad,
             'fecha_cita' => $this->nombre_fecha,
-            'trabajador_id' => $trabajador->id,
+            'empleado_id' => $trabajador->id,
             'proyecto_id' => $proyecto->id,
             'fecha_solicitud' => now(),
         ]);
 
-        $this->reset(['nombre_locacion', 'nombre_fecha', 'nombre_trabajador', 'nombre_proyecto']);
+        $this->reset(['nombre_locacion', 'nombre_actividad', 'nombre_fecha', 'nombre_trabajador', 'nombre_proyecto']);
 
         return redirect()->route('ordenes.index')->with('success', 'Orden de trabajo creada exitosamente.');   
 }
@@ -51,6 +55,13 @@ new class extends Component
     {
         return Orden::all()->pluck('lugar_cita')->unique();
     }
+
+    #[Computed()]
+    public function actividades()
+    {
+        return Orden::all()->pluck('actividad')->unique();
+    }
+
     #[Computed()]
     public function proyectos()
     {

@@ -32,7 +32,106 @@
                             <span class="text-red-500 text-sm">{{ $message }}</span>
                     @enderror
                 </div>
-            </div> 
+            </div>
+            
+            {{-- Que Actividad realizara el trabajador en la orden creada--}}
+             <div>
+                <label for="Actividad" class="flex flex-col gap-1"> 
+                    <span> Actividad </span>
+                </label>
+
+                <input list="actividades" id="actividad" name="actividad" wire:model.blur="nombre_actividad"
+                        class="border-cortvBorde border-1 rounded-md p-2 h-[40px] w-full mt-2 text-[16px]"
+                        placeholder="¿Qué actividad realizará el trabajador?">
+                
+                <datalist id="actividades">
+                    @foreach($this->actividades as $actividad)
+                        <option value="{{ $actividad }}">
+                    @endforeach
+                </datalist>
+                <div>
+                    @error('nombre_actividad')
+                            <span class="text-red-500 text-sm">{{ $message }}</span>
+                    @enderror
+                </div>
+            </div>
+
+            <div class= "flex flex-col justify-between" >
+
+                <div class="flex flex-row justify-evenly">
+                    <div>
+                        <label for="primer_tiro" class="flex flex-col gap-1"> 
+                            <span> Hora del primer tiro </span>
+                        </label>
+
+                        <input type="time" id="primer_tiro" name="primer_tiro" wire:model.blur="hora_primer_tiro"
+                                class="border-cortvBorde border-1 rounded-md p-2 h-[40px] text-center text-[16px] w-[70%] text-gray-500"
+                                >
+
+                        <div>
+                            @error('hora_primer_tiro')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                    </div>
+                    <div>
+                        <label for="catering" class="flex flex-col gap-1"> 
+                            <span> Hora del catering </span>
+                        </label>
+
+                        <input type="time" id="catering" name="catering" wire:model.blur="hora_catering"
+                                class="border-cortvBorde border-1 rounded-md p-2 h-[40px] text-[16px] text-center w-[70%] text-gray-500">
+                                
+
+                        <div>
+                            @error('hora_catering')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                    </div>                   
+                </div> 
+
+                <div class="flex flex-row justify-evenly">
+                    <div>
+                        <label for="reinicio" class="flex flex-col gap-1"> 
+                            <span> Hora de reinicio de grabacion  </span>
+                        </label>
+
+                        <input type="time" id="reinicio" name="reinicio" wire:model.blur="hora_reinicio"
+                                class="border-cortvBorde border-1 rounded-md p-2 h-[40px] text-[16px] text-center w-[70%] text-gray-500">
+
+                        <div>
+                            @error('hora_reinicio')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                    </div>   
+                    
+                    <div>
+                        <label for="reinicio" class="flex flex-col gap-1"> 
+                            <span> Hora de reinicio de grabacion  </span>
+                        </label>
+
+                        <input type="time" id="reinicio" name="reinicio" wire:model.blur="hora_reinicio"
+                                class="border-cortvBorde border-1 rounded-md p-2 h-[40px] text-[16px] text-center w-[70%] text-gray-500">
+
+                        <div>
+                            @error('hora_reinicio')
+                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                    </div>  
+
+                </div>
+
+                
+                
+            </div>
+
             {{-- Donde se llevara a cabo la cita --}}
             <div>
                 <label for="locacion" class="flex flex-col gap-1"> 
@@ -70,7 +169,7 @@
                     @endforeach
                 </datalist>
                 <div>
-                    @error('nombre_locacion')
+                    @error('nombre_proyecto')
                             <span class="text-red-500 text-sm">{{ $message }}</span>
                     @enderror
                 </div>
@@ -91,7 +190,7 @@
                     wire:model.blur="nombre_fecha"
                 />
                 <div>
-                    @error('nombre_trabajador')
+                    @error('nombre_fecha')
                             <span class="text-red-500 text-sm">{{ $message }}</span>
                     @enderror
                 </div>
