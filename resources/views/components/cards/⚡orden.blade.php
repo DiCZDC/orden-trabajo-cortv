@@ -1,6 +1,11 @@
 <?php
 
 use Livewire\Component;
+use App\Models\{
+    Orden,
+    Empleado
+};
+use Livewire\Attributes\Computed;
 new class extends Component
 {
     public $Orden;
@@ -10,8 +15,37 @@ new class extends Component
         $this->small = $small;
         $this->Orden = $orden;
     }
-    public function save_data(){
-        // session('ordenes.datos');
+    public function generatePDF(){
+        session()->put('ultima_orden',[
+            'nombre' => $this->empleado()->trabajador->nombre,
+            'cargo' => $this->empleado()->cargo,
+            'contrato' => true,
+            'area' => 'TV',
+            // 'hora_inicio' => $this->orden()->hora_inicio,
+            // 'hora_fin' => $this->orden()->hora_fin,
+            'fecha_solicitud' => '2024-06-15',
+            'fecha_llamado' => '2024-06-16',
+            'hora_llamado' => '09:00',
+            'lugar_cita' => 'Oficina Central',
+            'locacion' => 'Ciudad',
+            'actividades' => 'Mantenimiento de equipos',
+            'asistente' => 'Carlos Gomez',
+            'nombre_proyecto' => 'Proyecto X',
+            'hora_catering' => '12:00',
+            'hora_reinicio' => '13:00',
+            'hora_ultimo_tiro' => '16:30',
+            'observaciones' => 'Ninguna',
+            
+            'operaciones_nombre' => 'Ana Torres',
+            'productor' => $this->Orden->proyecto->productor->trabajador->nombre,
+            'director' => 'Luis Martinez',
+        ]);
+        return redirect()->route('ordenes.pdf');
+    }
+    #[Computed()]
+    public function empleado()
+    {
+        return Empleado::find($this->Orden->empleado_id);
     }
 };
 ?>
@@ -60,7 +94,7 @@ new class extends Component
                 </div>
             </a>
         </a>
-        <a href="{{ route('ordenes.pdf') }}">
+        <a wire:click="generatePDF" href="#">
             <div class="rounded-[4px] px-[15px] py-1 bg-cortvRojoBasico hover:bg-cortvRojoOscuro transition-colors h-auto duration-200 shadow-xl inline-flex items-center gap-2">
                 <span class="text-cortvHueso text-center">
                     Descargar
