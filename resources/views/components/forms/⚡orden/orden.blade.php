@@ -56,80 +56,57 @@
                 </div>
             </div>
 
-            <div class= "flex flex-col justify-between" >
+            {{-- horas de las ordenes de trabajo  --}}
+            <div class="grid grid-cols-2 gap-x-6 gap-y-4">
 
-                <div class="flex flex-row justify-evenly">
-                    <div>
-                        <label for="primer_tiro" class="flex flex-col gap-1"> 
-                            <span> Hora del primer tiro </span>
-                        </label>
-
-                        <input type="time" id="primer_tiro" name="primer_tiro" wire:model.blur="hora_primer_tiro"
-                                class="border-cortvBorde border-1 rounded-md p-2 h-[40px] text-center text-[16px] w-[70%] text-gray-500"
-                                >
-
-                        <div>
-                            @error('hora_primer_tiro')
-                                <span class="text-red-500 text-sm">{{ $message }}</span>
-                            @enderror
-                        </div>
-
-                    </div>
-                    <div>
-                        <label for="catering" class="flex flex-col gap-1"> 
-                            <span> Hora del catering </span>
-                        </label>
-
-                        <input type="time" id="catering" name="catering" wire:model.blur="hora_catering"
-                                class="border-cortvBorde border-1 rounded-md p-2 h-[40px] text-[16px] text-center w-[70%] text-gray-500">
-                                
-
-                        <div>
-                            @error('hora_catering')
-                                <span class="text-red-500 text-sm">{{ $message }}</span>
-                            @enderror
-                        </div>
-
-                    </div>                   
-                </div> 
-
-                <div class="flex flex-row justify-evenly">
-                    <div>
-                        <label for="reinicio" class="flex flex-col gap-1"> 
-                            <span> Hora de reinicio de grabacion  </span>
-                        </label>
-
-                        <input type="time" id="reinicio" name="reinicio" wire:model.blur="hora_reinicio"
-                                class="border-cortvBorde border-1 rounded-md p-2 h-[40px] text-[16px] text-center w-[70%] text-gray-500">
-
-                        <div>
-                            @error('hora_reinicio')
-                                <span class="text-red-500 text-sm">{{ $message }}</span>
-                            @enderror
-                        </div>
-
-                    </div>   
-                    
-                    <div>
-                        <label for="reinicio" class="flex flex-col gap-1"> 
-                            <span> Hora de reinicio de grabacion  </span>
-                        </label>
-
-                        <input type="time" id="reinicio" name="reinicio" wire:model.blur="hora_reinicio"
-                                class="border-cortvBorde border-1 rounded-md p-2 h-[40px] text-[16px] text-center w-[70%] text-gray-500">
-
-                        <div>
-                            @error('hora_reinicio')
-                                <span class="text-red-500 text-sm">{{ $message }}</span>
-                            @enderror
-                        </div>
-
-                    </div>  
-
+                {{-- Primer tiro --}}
+                <div class="flex flex-col items-center">
+                    <label for="primer_tiro" class="text-center mb-1">
+                        Hora del primer tiro
+                    </label>
+                    <input type="time" id="primer_tiro" name="primer_tiro" wire:model.blur="hora_primer_tiro"
+                            class="border-cortvBorde border-1 rounded-md p-2 h-[40px] text-center text-[16px] w-[140px] text-gray-500">
+                    @error('hora_primer_tiro')
+                        <span class="text-red-500 text-sm mt-1">{{ $message }}</span>
+                    @enderror
                 </div>
 
-                
-                
+                {{-- Catering --}}
+                <div class="flex flex-col items-center">
+                    <label for="catering" class="text-center mb-1">
+                        Hora del catering
+                    </label>
+                    <input type="time" id="catering" name="catering" wire:model.blur="hora_catering"
+                            class="border-cortvBorde border-1 rounded-md p-2 h-[40px] text-center text-[16px] w-[140px] text-gray-500">
+                    @error('hora_catering')
+                        <span class="text-red-500 text-sm mt-1">{{ $message }}</span>
+                    @enderror
+                </div>
+
+                {{-- Reinicio de grabación --}}
+                <div class="flex flex-col items-center">
+                    <label for="reinicio" class="text-center mb-1">
+                        Hora de reinicio 
+                    </label>
+                    <input type="time" id="reinicio" name="reinicio" wire:model.blur="hora_reinicio"
+                            class="border-cortvBorde border-1 rounded-md p-2 h-[40px] text-center text-[16px] w-[140px] text-gray-500">
+                    @error('hora_reinicio')
+                        <span class="text-red-500 text-sm mt-1">{{ $message }}</span>
+                    @enderror
+                </div>
+
+                {{-- Último tiro --}}
+                <div class="flex flex-col items-center">
+                    <label for="ultimo_tiro" class="text-center mb-1">
+                        Hora de último tiro
+                    </label>
+                    <input type="time" id="ultimo_tiro" name="ultimo_tiro" wire:model.blur="hora_ultimo_tiro"
+                            class="border-cortvBorde border-1 rounded-md p-2 h-[40px] text-center text-[16px] w-[140px] text-gray-500">
+                    @error('hora_ultimo_tiro')
+                        <span class="text-red-500 text-sm mt-1">{{ $message }}</span>
+                    @enderror
+                </div>
+
             </div>
 
             {{-- Donde se llevara a cabo la cita --}}

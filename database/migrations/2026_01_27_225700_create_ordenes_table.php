@@ -23,6 +23,8 @@ return new class extends Migration
             $table->text('actividad');
 
             $table->string('lugar_cita');
+            $table->string('locacion')->nullable();
+            
             $table->date('fecha_cita');
             
             $table->date('fecha_solicitud');
