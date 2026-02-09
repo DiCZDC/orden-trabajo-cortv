@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('ordenes', function (Blueprint $table) {
             $table->id();
+
             
             // Relación con Trabajador (1:N - Un trabajador tiene muchas órdenes)
             $table->foreignId('empleado_id')->constrained('empleados')->onDelete('cascade');
@@ -26,6 +27,13 @@ return new class extends Migration
             
             $table->date('fecha_solicitud');
             
+            $table->time('hora_primer_tiro')->nullable();
+            $table->time('hora_catering')->nullable();
+            $table->time('hora_reinicio')->nullable();
+            $table->time('hora_ultimo_tiro')->nullable();
+
+            $table->text('observaciones')->nullable();
+
             $table->timestamps();
         });
     }
