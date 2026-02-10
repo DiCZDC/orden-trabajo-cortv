@@ -3,11 +3,14 @@
 use Livewire\Component;
 use Livewire\Attributes\Computed;
 use App\Models\{
+    Productor,
     Proyecto,
     Trabajador,
 
 };
 use Livewire\Attributes\Validate;
+
+use function Symfony\Component\Translation\t;
 
 new class extends Component
 {
@@ -15,19 +18,37 @@ new class extends Component
     public $nombre_proyecto = '';
 
     #[Validate('required', message: 'Seleccione un productor')]
-    #[Validate('exists:productos,nombre_producto', message: 'El producto seleccionado no es válido o no existe')]
+    #[Validate('exists:trabajadors,nombre', message: 'El productor seleccionado no es válido o no existe')]
     public $nombre_productor = '';
+        
     
-    public $nombre_actividad = '';
+    #[Validate('required', message: 'Ingrese la locación del proyecto')]
     public $nombre_locacion = '';
 
+    public function save()
+    {
+        $this->validate();
+
+        $productor = Trabajador::where('nombre', $this->nombre_productor)->first()->productor;
+
+        Proyecto::create([
+            'nombre' => $this->nombre_proyecto,
+            'locacion' => $this->nombre_locacion,
+            'productor_id' => $productor->id,
+          
+        ]);
+
+        // Reset formields after saving
+        $this->reset(['nombre_proyecto', 'nombre_productor', 'nombre_locacion']);
+        return redirect()->route('proyectos.index');
+    }
 
 
 
     #[Computed()]
     public function productores()
     {
-        return Trabajador::where('cargo', 'PRODUCTOR')->pluck('nombre');
+        return Trabajador::whereHas('productor')->pluck('nombre');
     }
     #[Computed()]
     public function locaciones()

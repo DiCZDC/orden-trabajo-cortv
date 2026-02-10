@@ -3,7 +3,7 @@
     <div class="flex justify-center mt-3">
         <span class="text-cortvRojoBasico text-5xl text-center font-bold tracking-[-0.96px] mb-3"
             style="font-family: 'Times New Roman', Times, serif;">
-            Registrar un Nuevo Trabajador
+            Registrar un Nuevo Empleado
         </span>
     </div>
 
@@ -15,29 +15,28 @@
             <!-- Que trabajador se elegira para el evento -->
             <div>
                 <label for="trabajador" class="flex flex-col gap-1"> 
-                    <span> Nombre del Trabajador </span>
+                    <span> Nombre del Empleado </span>
                 </label>
 
-                <input list="trabajadores" id="trabajador" name="trabajador" wire:model.blur="nombre_trabajador"
+                <input list="trabajadores" id="trabajador" name="trabajador" wire:model.blur="nombre_empleado"
                         class="border-cortvBorde border-1 rounded-md p-2 h-[40px] w-full mt-2 text-[16px]"
-                        placeholder="¿Cual es el nombre del trabajador?">
-                
-                
+                        placeholder="¿Cual es el nombre del nuevo empleado?">
+                                
                 <div>
-                    @error('nombre_trabajador')
+                    @error('nombre_empleado')
                             <span class="text-red-500 text-sm">{{ $message }}</span>
                     @enderror
                 </div>
             </div> 
-            {{-- Donde se llevara a cabo la cita --}}
+            {{-- Cual es el cargo del empleado --}}
             <div>
                 <label for="cargo" class="flex flex-col gap-1"> 
                     <span> Cargo </span>
                 </label>
 
-                <input list="cargos" id="cargo" name="cargo" wire:model.blur="nombre_cargo"
+                <input list="cargos" id="cargo" name="cargo" wire:model.blur="cargo"
                         class="border-cortvBorde border-1 rounded-md p-2 h-[40px] w-full mt-2 text-[16px]"
-                        placeholder="¿Cual es el cargo del trabajador? ">
+                        placeholder="¿Cual es el cargo del nuevo trabajador? ">
                 
                 <datalist id="cargos">
                     @foreach($this->cargos as $cargo)
@@ -45,32 +44,60 @@
                     @endforeach
                 </datalist>
                 <div>
-                    @error('nombre_cargo')
+                    @error('cargo')
                             <span class="text-red-500 text-sm">{{ $message }}</span>
                     @enderror
                 </div>
             </div> 
-            {{-- Donde se llevara a cabo la cita --}}
+            {{-- Que turno tendra el trabajador --}}
             <div>
                 <label for="turno" class="flex flex-col gap-1"> 
                     <span> Turno </span>
                 </label>
 
-                <select name="turno" id="turno" wire:model.blur="nombre_turno"
+                <select name="turno" id="turno" wire:model.live="turno"
                         class="border-cortvBorde border-1 rounded-md p-2 h-[40px] w-full mt-2 text-[16px]">
                     <option value="" disabled selected>Seleccione el turno del trabajador</option>
                     <option value="MATUTINO">Matutino</option>
                     <option value="VESPERTINO">Vespertino</option>
-                    <option value="DESCANCERO">Descansero</option>
+                    <option value="DESCANSERO">Descansero</option>
                 </select>
                 <div>
-                    @error('nombre_turno')
+                    @error('turno')
                             <span class="text-red-500 text-sm">{{ $message }}</span>
                     @enderror
                 </div>
             </div> 
             
+            <div class="grid grid-cols-2 gap-x-6 gap-y-4">
 
+                {{-- hora_Entrada --}}
+                <div class="flex flex-col items-center">
+                    <label for="hora_entrada" class="text-center mb-1">
+                        Hora entrada
+                    </label>
+                    <input type="time" id="hora_entrada" name="hora_entrada" wire:model.blur="hora_entrada"
+                            @disabled(strtoupper($turno) === 'DESCANSERO')
+                            class="border-cortvBorde border-1 rounded-md p-2 h-[40px] text-center text-[16px] w-[140px] text-gray-500 disabled:bg-gray-200 disabled:cursor-not-allowed">
+                    @error('hora_entrada')
+                        <span class="text-red-500 text-sm mt-1">{{ $message }}</span>
+                    @enderror
+                </div>
+
+                {{-- hora_Salida --}}
+                <div class="flex flex-col items-center">
+                    <label for="hora_salida" class="text-center mb-1">
+                        Hora salida
+                    </label>
+                    <input type="time" id="hora_salida" name="hora_salida" wire:model.blur="hora_salida"
+                            @disabled(strtoupper($turno) === 'DESCANSERO')
+                            class="border-cortvBorde border-1 rounded-md p-2 h-[40px] text-center text-[16px] w-[140px] text-gray-500 disabled:bg-gray-200 disabled:cursor-not-allowed">
+                    @error('hora_salida')
+                        <span class="text-red-500 text-sm mt-1">{{ $message }}</span>
+                    @enderror
+                </div>
+
+            </div>    
            
             <!-- boton de Enviar  -->
 
