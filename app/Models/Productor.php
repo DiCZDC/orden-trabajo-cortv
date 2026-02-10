@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Productor extends Model
 {
     protected $fillable = [
-        'nombre',
+        'trabajador_id',
     ]; 
 
     /**
