@@ -9,6 +9,7 @@ use App\Http\Controllers\{
     PersonalController,
     OrdenController,
     pdfController,
+    ProductorController,
 };
 
 Route::get('/', [InicioController::class, 'index']);
@@ -38,6 +39,9 @@ Route::get('ordenes/pdf', [pdfController::class, 'generatePDF'])->middleware(['a
 Route::get('ordenes', [OrdenController::class, 'index'])->middleware(['auth', 'verified'])->name('ordenes.index');
 Route::get('ordenes/{id}', [OrdenController::class, 'show'])->middleware(['auth', 'verified'])->name('ordenes.show');
 
+
+//Rutas de productores
+Route::get('productores', [ProductorController::class, 'index'])->middleware(['auth', 'verified'])->name('productores.index');
 
 
 require __DIR__.'/auth.php';

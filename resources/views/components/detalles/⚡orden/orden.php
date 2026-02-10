@@ -24,26 +24,28 @@ new class extends Component
             'cargo' => $this->empleado()->cargo,
             'contrato' => true,
             'area' => 'TV',
-            // 'hora_inicio' => $this->orden()->hora_inicio,
-            // 'hora_fin' => $this->orden()->hora_fin,
-            'fecha_solicitud' => '2024-06-15',
-            'fecha_llamado' => '2024-06-16',
-            'hora_llamado' => '09:00',
-            'lugar_cita' => 'Oficina Central',
-            'locacion' => 'Ciudad',
-            'actividades' => 'Mantenimiento de equipos',
+            'hora_inicio' => $this->empleado()->hora_entrada,
+            'hora_fin' => $this->empleado()->hora_salida,
+            'fecha_solicitud' => $this->orden()->fecha_solicitud->format('Y-m-d'),
+            'fecha_llamado' => $this->orden()->fecha_cita->format('Y-m-d'),
+            'hora_llamado' => $this->orden()->hora_llamado,
+            'lugar_cita' => $this->orden()->lugar_cita,
+            'locacion' => $this->orden()->proyecto->locacion,
+            'actividades' => $this->orden()->actividad,
             'asistente' => 'Carlos Gomez',
-            'nombre_proyecto' => 'Proyecto X',
-            'hora_catering' => '12:00',
-            'hora_reinicio' => '13:00',
-            'hora_ultimo_tiro' => '16:30',
-            'observaciones' => 'Ninguna',
+            'director_proyecto' => 'PENDEJO DANIEL',
+            'nombre_proyecto' => $this->orden()->proyecto->nombre,
+            'hora_catering' => $this->orden()->hora_catering,
+            'hora_reinicio' => $this->orden()->hora_reinicio,
+            'hora_ultimo_tiro' => $this->orden()->hora_ultimo_tiro,
+            'observaciones' => $this->orden()->observaciones,
             
-            'operaciones_nombre' => 'Ana Torres',
+            'operaciones_nombre' => 'ING. EDWIN MARTÍNEZ CRUZ',
             'productor' => $this->orden()->proyecto->productor->trabajador->nombre,
-            'director' => 'Luis Martinez',
+            'director' => 'LIC. DIANA ISIS MOLINA DOMINGUEZ',
         ]);
-        return redirect()->route('ordenes.pdf');
+        // return (new pdfController())->generatePDF($this->Orden, $this->empleado);
+        $this->js("window.open('".route('ordenes.pdf')."', '_blank')");
         
     }
     #[Computed()]

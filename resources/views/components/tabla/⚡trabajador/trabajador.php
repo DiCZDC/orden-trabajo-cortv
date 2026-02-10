@@ -42,17 +42,32 @@ new class extends Component
         pluck('cargo')->
         unique();
     }
-    
+    #[Computed()]
+    public function trabajadores()
+    {
+        return Trabajador::search($this->search)
+            ->when($this->areaFilter !== '', function ($query) {
+                $query->whereHas('empleado', function($q) {
+                $q->where('cargo', $this->areaFilter);
+                });
+            })
+            ->whereDoesntHave('productor')
+            ->paginate($this->perPage);
+    }
+    #[Computed()]
+    public function productores()
+    {
+        return Trabajador::search($this->search)
+            ->when($this->areaFilter !== '', function ($query) {
+                $query->whereHas('empleado', function($q) {
+                $q->where('cargo', $this->areaFilter);
+                });
+            })
+            ->whereHas('productor')
+            ->paginate($this->perPage);
+    }
     public function render()
     {
-        return view('components.tabla.⚡trabajador.trabajador',[
-            'trabajadores'=>Trabajador::search($this->search)
-                ->when($this->areaFilter !== '', function ($query) {
-                    $query->whereHas('empleado', function($q) {
-                        $q->where('cargo', $this->areaFilter);
-                    });
-                })
-                ->paginate($this->perPage),
-        ]);
+        return view('components.tabla.⚡trabajador.trabajador',[]);
     }
 };

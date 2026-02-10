@@ -1,7 +1,7 @@
 <section >
             <div class="relative  overflow-hidden">
                 <div class=" flex items-center  sm:rounded-lg justify-between gap-2 p-5 flex-col xl:flex-row">
-                    <div class="flex w-full">
+                    {{-- <div class="flex w-full">
                         <div class="relative w-full ">
                            
                             <input  
@@ -19,31 +19,28 @@
                                 </svg>
                             </div>
                         </div>
-                    </div>
-                    <div class="flex space-x-3">
+                    </div> --}}
+                    {{-- <div class="flex space-x-3">
                         <div class="flex space-x-3 items-center">
                             <label class="w-80 text-sm font-medium text-gray-900">Cargo del Personal:</label>
                             <select 
                                 wire:model.live="areaFilter"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                                 <option value="">Todos los cargos</option>
-                                @foreach ($this->areas() as $area)
+                                @foreach ($this->productores() as $productor)
                                     <option value="{{ $area }}">{{ $area }}</option>
                                 @endforeach
                                 
                             </select>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
 
                 <!--Tabla-->
                 <div class="grid grid-cols-1 mx-[2%] transition-all xl:grid-cols-2 2xl:grid-cols-3">
-                    @foreach($this->trabajadores() as $trabajador)
-                        @if ($trabajador->empleado != null)                        
-                            <livewire:cards.trabajador wire:key="trabajador-{{ $trabajador->id }}" :empleado="$trabajador->empleado" />
-                        @else
-                            <livewire:cards.trabajador wire:key="trabajador-{{ $trabajador->id }}" :empleado="$trabajador->productor" />        
-                        @endif
+                    @foreach($this->productores() as $productor)
+                        <livewire:cards.trabajador wire:key="trabajador-{{ $productor->trabajador->id }}" :empleado="$productor" />        
+                        
                     @endforeach
                 </div>
     
@@ -57,12 +54,12 @@
                                 <option value="3">3</option>
                                 <option value="6">6</option>
                                 <option value="9">9</option>
+                                <option value="12">12</option>
                                 <option value="15">15</option>
-                                <option value="30">30</option>
                             </select>
                         </div>
                     </div>
-                    {{ $this->trabajadores()->links() }}
+                    {{ $this->productores()->links() }}
                 </div>
             </div>
 

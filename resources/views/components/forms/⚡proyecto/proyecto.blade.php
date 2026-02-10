@@ -48,22 +48,7 @@
                 </div>
             </div> 
             
-            <!--Que actividad se realiza en el proyecto -->
-            <div>
-                <label for="actividad" class="flex flex-col gap-1"> 
-                    <span> Actividad</span>
-                </label>
-
-                <input id="actividad" name="actividad" wire:model.blur="nombre_actividad"
-                        class="border-cortvBorde border-1 rounded-md p-2 h-[40px] w-full mt-2 text-[16px]"
-                        placeholder="¿Que actividad se realiza en el proyecto?">
-                
-                <div>
-                    @error('nombre_actividad')
-                            <span class="text-red-500 text-sm">{{ $message }}</span>
-                    @enderror
-                </div>
-            </div> 
+                        
            {{-- Donde se llevara a cabo la cita --}}
             <div>
                 <label for="locacion" class="flex flex-col gap-1"> 
