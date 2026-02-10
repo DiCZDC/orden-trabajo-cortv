@@ -15,6 +15,7 @@ class Proyecto extends Model
         'nombre',
         'actividad',
         'locacion',
+        'productor_id',
     ];
 
     /**

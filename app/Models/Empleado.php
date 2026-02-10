@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Empleado extends Model
 {
      protected $fillable = [
+        'trabajador_id',   
         'turno',
         'cargo',
         'hora_entrada',

@@ -45,11 +45,17 @@ new class extends Component
         $proyecto = Proyecto::where('nombre', $this->nombre_proyecto)->first();
         $trabajador = Trabajador::where('nombre', $this->nombre_trabajador)->first();    
 
+        // Verificar que el trabajador tenga un empleado asociado
+        if (!$trabajador->empleado) {
+            $this->addError('nombre_trabajador', 'El trabajador seleccionado no tiene un perfil de empleado asociado.');
+            return;
+        }
+
         Orden::create([
             'lugar_cita' => $this->nombre_locacion,
             'actividad' => $this->nombre_actividad,
             'fecha_cita' => $this->nombre_fecha,
-            'empleado_id' => $trabajador->id,
+            'empleado_id' => $trabajador->empleado->id,
             'proyecto_id' => $proyecto->id,
             'fecha_solicitud' => now(),
             'observaciones' => $this->observaciones,
