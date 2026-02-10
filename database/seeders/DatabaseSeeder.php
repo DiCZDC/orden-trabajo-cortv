@@ -28,8 +28,8 @@ class DatabaseSeeder extends Seeder
         // 3. Ordenes (depende de Trabajadores y Proyectos)
         $this->call([
             TrabajadorSeeder::class,
-            ProyectoSeeder::class,
-            OrdenSeeder::class,
+            // ProyectoSeeder::class,
+            // OrdenSeeder::class,
         ]);
     }
 }
