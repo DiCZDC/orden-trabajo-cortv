@@ -4,9 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Salidas del inventario</title>
+    <title>Orden de trabajo</title>
     <style>
-        /* Reset - basado en salidas.css */
+        /* Reset */
         * {
             margin: 0;
             padding: 0;
@@ -18,153 +18,168 @@
         }
 
         body {
+            font-family: Arial, Helvetica, sans-serif;
             font-size: 12px;
             margin: 0;
             padding: 0;
         }
 
-        main {
-            width: 100%;
-        }
-
-        /* Header - basado en salidas.css */
-        .header {
-            width: 100%;
-            text-align: center;
-            margin-bottom: 15px;
-        }
-
-        .tabla-logos {
-            text-align: center;
-            margin-bottom: 3px;
-        }
-
-        .tabla-logos table {
+        /* Layout principal con tabla (compatibilidad DomPDF) */
+        .main-table {
             width: 80%;
-            margin: 0 auto;
-            border: none;
-        }
-
-        .tabla-logos td {
-            text-align: center;
-            border: none;
-            padding: 5px 20px;
-            width: 50%;
-        }
-
-        .tabla-logos img {
-            max-width: 180px;
-            height: auto;
-        }
-
-        /* Corporación - basado en salidas.css */
-        .corporacion {
-            text-align: center;
-            margin-bottom: 10px;
-            margin-top: -40px;
-        }
-
-        .corporacion h1 {
-            font-weight: bold;
-            font-size: 18px;
-            margin: 0 0 5px 0;
-        }
-
-        .corporacion h2 {
-            font-weight: normal;
-            font-size: 14px;
-            margin: 0;
-        }
-
-        /* Solicitud */
-        .solicitud {
-            width: 100%;
-            margin-top: 10px;
-            text-align: center;
-        }
-
-        .titulo-documento {
-            text-align: center;
-            font-weight: bold;
-            font-size: 18px;
-            margin-bottom: 10px;
-            padding: 3px;
-        }
-
-        /* Información - basado en salidas.css */
-        .informacion-s {
-            width: 100%;
-            margin-top: 8px;
-            margin-bottom: 15px;
-        }
-
-        .informacion-s table {
-            width: 90%;
-            margin: 0 auto;
-            border: none;
-        }
-
-        .informacion-s td {
-            text-align: center;
-            vertical-align: top;
-            padding: 3px 10px;
-            font-size: 12px;
-            border: none;
-        }
-
-        .informacion-s .label {
-            font-weight: bold;
-            display: block;
-            margin-bottom: 3px;
-        }
-
-        /* Tabla de productos - basado en salidas.css */
-        .tabla-contenido {
-            width: 100%;
-            margin-bottom: 20px;
-        }
-
-        .tabla-productos {
-            width: 85%;
-            margin: 0 auto;
             border-collapse: collapse;
-            text-align: center;
         }
 
-        .tabla-productos thead {
-            display: table-header-group;
-        }
-
-        .tabla-productos thead th {
-            background-color: #AE2B2F;
-            color: white;
-            padding: 6px;
-            border: 1px solid #888;
-            font-weight: bold;
-            font-size: 11px;
-        }
-
-        .tabla-productos tbody td {
-            padding: 5px;
-            border: 1px solid #888;
-            text-align: center;
+        .aside {
+            width: 14%;
             vertical-align: middle;
-            font-size: 10px;
+            text-align: center;
         }
 
-        .tabla-productos tr {
-            page-break-inside: avoid;
+        .aside img {
+            max-height: 100%;
+            width: auto;
         }
 
-        /* Autorización - basado en salidas.css */
+        .contenido {
+            width: 95%;
+            vertical-align: top;
+            padding-left: 20px;
+        }
+
+        /* Header */
+        .header-table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        .header-table td {
+            vertical-align: middle;
+        }
+
+        .header-table h1 {
+            font-size: 22px;
+            color: #AE2B2F;
+            text-align: right;
+            padding-right: 50px;
+        }
+
+        .logo img {
+            width: 150px;
+        }
+
+        /* Contenido de la orden */
+        .contenido-orden {
+            padding: 0px 50px;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .datos-trabajador {
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        /* Campos con subrayado (nombre, cargo, etc.) */
+        .data-nombre-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 10px;
+        }
+
+        .data-nombre-table td {
+            vertical-align: bottom;
+            padding: 2px 0;
+        }
+
+        .data-nombre-table .label-cell {
+            white-space: nowrap;
+            width: 1%;
+            padding-right: 10px;
+        }
+
+        .data-nombre-table .value-cell {
+            border-bottom: 1px solid #000000;
+            width: 99%;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            word-break: break-word;
+        }
+
+        .bordex {
+            border-bottom: 1px solid #000000;
+            width: 100%;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            word-break: break-word;
+        }
+
+        /* Modalidad contrato y área */
+        .sin_subrayado_completo {
+            margin-top: 10px;
+        }
+
+        .contrato {
+            margin-bottom: 5px;
+        }
+
+        .contrato span {
+            margin-right: 10px;
+        }
+
+        .area-horario-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .area-horario-table td {
+            vertical-align: middle;
+            padding: 2px 0;
+        }
+
+        .area-cell span {
+            margin-right: 8px;
+        }
+
+        /* Campos paralelos (fecha, hora, etc.) */
+        .paralelo-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .paralelo-table td {
+            width: 50%;
+            vertical-align: top;
+            padding: 4px 0;
+        }
+
+        .paralelo-table u {
+            margin-left: 4px;
+        }
+
+        /* Horas (primer tiro, catering, etc.) */
+        .div25 {
+            margin-top: 20px;
+        }
+
+        /* Observaciones */
+        .observaciones {
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        /* Sección de firmas */
         .autorizacion {
             width: 100%;
-            margin-top: 25px;
-            page-break-inside: avoid;
+            margin-top: 10px;
+            
         }
 
         .tabla-autorizacion {
-            width: 85%;
+            width: 100%;
             margin: 0 auto 8px auto;
             border-collapse: collapse;
             text-align: center;
@@ -176,7 +191,6 @@
             color: white;
             font-weight: bold;
             padding: 6px;
-            /* border: 1px solid #888; */
             width: 50%;
             font-size: 11px;
         }
@@ -185,7 +199,6 @@
             height: 100px;
             vertical-align: bottom;
             padding: 8px;
-            /* border: 1px solid #888; */
             width: 50%;
         }
 
@@ -197,7 +210,6 @@
         }
 
         .nombre-firmante {
-            /* font-weight: bold; */
             margin: 0;
             font-size: 10px;
             color: #454444;
@@ -209,242 +221,282 @@
             margin-top: 3px;
             font-size: 9px;
         }
-
-        /* Saltos de página */
-        .page-break {
-            page-break-after: always;
-        }
-
-        .avoid-break {
-            page-break-inside: avoid;
-        }
     </style>
 </head>
 
 <body>
+    @php
+        // --- Carga de imágenes en base64 para compatibilidad con DomPDF / NativePHP ---
+
+        // Membrete lateral
+        $membretePaths = [
+            public_path('images/Membrete.png'),
+            base_path('public/images/Membrete.png'),
+            resource_path('images/Membrete.png'),
+        ];
+        $membreteData = null;
+        $membreteMime = 'image/png';
+        foreach ($membretePaths as $path) {
+            if (file_exists($path) && is_readable($path)) {
+                try { $membreteData = base64_encode(file_get_contents($path)); break; } catch (\Exception $e) { continue; }
+            }
+        }
+
+        // Logo CORTV
+        $logoPaths = [
+            public_path('images/logo_cortv.png'),
+            base_path('public/images/logo_cortv.png'),
+            resource_path('images/logo_cortv.png'),
+        ];
+        $logoData = null;
+        $logoMime = 'image/png';
+        foreach ($logoPaths as $path) {
+            if (file_exists($path) && is_readable($path)) {
+                try { $logoData = base64_encode(file_get_contents($path)); break; } catch (\Exception $e) { continue; }
+            }
+        }
+    @endphp
+
     <main>
-        <!-- HEADER -->
-        <div class="header">
-            {{-- Logos --}}
-            <div class="tabla-logos">
-                <table>
-                    <tr>
-                        @php 
-                            // Intentar múltiples rutas para compatibilidad con NativePHP
-                            $possiblePaths = [
-                                public_path('images/logo_oaxaca.png'),
-                                base_path('public/images/logo_oaxaca.png'),
-                                resource_path('images/logo_oaxaca.png'),
-                            ];
-                            
-                            $logo1Data = null;
-                            $logo1Mime = 'image/png';
-                            
-                            foreach ($possiblePaths as $path) {
-                                if (file_exists($path) && is_readable($path)) {
-                                    try {
-                                        $logo1Data = base64_encode(file_get_contents($path));
-                                        break;
-                                    } catch (\Exception $e) {
-                                        continue;
-                                    }
-                                }
-                            }
-                            
-                            // Logo CORTV
-                            $possiblePaths2 = [
-                                public_path('images/logo_cortv.png'),
-                                base_path('public/images/logo_cortv.png'),
-                                resource_path('images/logo_cortv.png'),
-                            ];
-                            
-                            $logo2Data = null;
-                            $logo2Mime = 'image/png';
-                            
-                            foreach ($possiblePaths2 as $path) {
-                                if (file_exists($path) && is_readable($path)) {
-                                    try {
-                                        $logo2Data = base64_encode(file_get_contents($path));
-                                        break;
-                                    } catch (\Exception $e) {
-                                        continue;
-                                    }
-                                }
-                            }
-                        @endphp
-                        <td>
-                            @if($logo1Data)
-                                <img src="data:{{ $logo1Mime }};base64,{{ $logo1Data }}" alt="Logo Oaxaca">
-                            @endif
-                        </td>
-                        <td>
-                            @if($logo2Data)
-                                <img src="data:{{ $logo2Mime }};base64,{{ $logo2Data }}" alt="Logo CORTV">
-                            @endif
-                        </td>
-                    </tr>
-                </table>
-            </div>
+        {{-- Layout principal: aside (membrete) + contenido --}}
+        <table class="main-table">
+            <tr>
+                {{-- ASIDE: Membrete lateral --}}
+                <td class="aside">
+                    @if($membreteData)
+                        <img src="data:{{ $membreteMime }};base64,{{ $membreteData }}" alt="Membrete del formato">
+                    @endif
+                </td>
 
-            <div class="corporacion">
-                <h1>
-                        ORDEN DE TRABAJO
-                </h1>
-            </div>
-        </div>
+                {{-- CONTENIDO PRINCIPAL --}}
+                <td class="contenido">
 
-        <!-- DATOS DEL DOCUMENTO -->
-        <div class="solicitud">
-            <div class="titulo-documento">
-                {{ session('datos_registro.formato') }}
-            {{-- </div>
-
-                <div class="informacion-s">
-                    <table>
+                    {{-- HEADER: Logo + Título --}}
+                    <table class="header-table">
                         <tr>
-                            <td>
-                                <span class="label">Área que solicita:</span>
-                                <span>{{ session('datos_registro.area') }}</span>
+                            <td class="logo">
+                                @if($logoData)
+                                    <img src="data:{{ $logoMime }};base64,{{ $logoData }}" alt="Logo CORTV">
+                                @endif
                             </td>
                             <td>
-                                <span class="label">Nombre:</span>
-                                <span>{{ session('datos_registro.nombre') }}</span>
-                            </td>
-                            <td>
-                                <span class="label">Fecha:</span>
-                                <span>{{ date('d/m/Y') }}</span>
-                            </td>
-                            <td>
-                                <span class="label">Categoría:</span>
-                                <span>{{ session('datos_registro.categoria') }}</span>
+                                <h1>ORDEN DE TRABAJO</h1>
                             </td>
                         </tr>
                     </table>
-                </div>
-        </div> --}}
-        <!--Nombre del trabajador-->
-            <b>NOMBRE:</b> 
-            <i>{{strtoupper(session('ultima_orden.nombre'))}}</i>
-        <br>
-        <!--Cargo del trabajador-->
-            <b>CARGO:</b>
-            <i>{{strtoupper(session('ultima_orden.cargo'))}}</i>
-        <br>
-        <!--Modalidad de contrato-->
-            <b>MODALIDAD DE CONTRATO:</b>
-            
-            <b class="sub">CONTRATO:</b>
-            <i>{{session('ultima_orden.contrato') ? 'X' : ' '}}</i>
 
-            <b class="sub">CONFIANZA:</b>
-            <i >{{session('ultima_orden.contrato') ? ' ' : 'X'}}</i>
-        <br>
-            <b>AREA DE ADSCRIPCION:</b> 
-                <b class="sub">CORTV:</b>
-                <i>{{session('ultima_orden.area') === 'CORTV' ? 'X' : ' '}}</i>
-                <b class="sub">TV:</b>
-                <i>{{session('ultima_orden.area') === 'TV' ? 'X' : ' '}}</i>
-                <b class="sub">RADIO:</b>
-                <i>{{session('ultima_orden.area') === 'RADIO' ? 'X' : ' '}}</i>
-        <br>
-        <b>HORARIO HABITUAL:</b> 
-            <i>{{ date('H:i', strtotime(session('ultima_orden.hora_inicio'))) }} - {{ date('H:i', strtotime(session('ultima_orden.hora_fin'))) }} hrs.</i>
-        <br>
-            <b>FECHA DE SOLICITUD:</b>
-            <i>{{session('ultima_orden.fecha_solicitud')}}</i>
-        <br>
-            <b>FECHA DE LLAMADO:</b>
-            <i>{{session('ultima_orden.fecha_llamado')}}</i>
-        <br>
-            <b>HORA DE LLAMADO:</b>
-            <i>{{session('ultima_orden.hora_llamado')}} hrs.</i>
-        <br>
-            <b>LUGAR DE CITA:</b>
-            <i>{{session('ultima_orden.lugar_cita')}}</i>
-        <br>
-            <b>LOCACIONES:</b>
-            <i>{{session('ultima_orden.locacion')}}</i>
-        <br>
-            <b>ACTIVIDADES:</b>
-            <i>{{session('ultima_orden.actividades')}}</i>
-        <br>
-            <b>NOMBRE DEL PROYECTO:</b>
-            <i>{{session('ultima_orden.nombre_proyecto')}}</i>
-        <br>
-            <b>PRODUCTOR:</b>
-            <i>{{session('ultima_orden.productor')}}</i>
-        <br>
-            <b>DIRECTOR:</b>
-            <i>{{session('ultima_orden.director')}}</i>
-        <br>
-            <b>ASISTENTE:</b>
-            <i>{{session('ultima_orden.asistente')}}</i>
-        <br>
-            <b>HORA DE CATERING:</b>
-            <i>{{session('ultima_orden.hora_catering')}} hrs.</i>
-        <br>
-            <b>HORA DE REINICIO DE GRABACION:</b>
-            <i>{{session('ultima_orden.hora_reinicio')}} hrs.</i>
-        <br>
-            <b>HORA DE ULTIMO TIRO:</b>
-            <i>{{session('ultima_orden.hora_ultimo_tiro')}} hrs.</i>
-        <br>
-            <b>OBSERVACIONES:</b>
-            <i>{{session('ultima_orden.observaciones')}} hrs.</i>
-        <!-- SECCIÓN DE FIRMAS -->
-        <div class="autorizacion avoid-break">
-            <table class="tabla-autorizacion">
+                    {{-- CONTENIDO DE LA ORDEN --}}
+                    <div class="contenido-orden">
+                        <div class="datos-trabajador">
 
-                <tbody>
-                    <tr>
-                        <td>
-                            <div class="firma-espacio"></div>
-                            <p class="nombre-firmante">{{ strtoupper(session('ultima_orden.nombre')) }}</p>
-                            <p class="cargo-firmante"> 
-                                <b>
-                                    FIRMA DEL TRABAJADOR
-                                </b>
-                             </p>
+                            {{-- Nombre --}}
+                            <table class="data-nombre-table">
+                                <tr>
+                                    <td class="label-cell"><b>Nombre:</b></td>
+                                    <td class="value-cell">{{ strtoupper(session('ultima_orden.nombre')) }}</td>
+                                </tr>
+                            </table>
 
-                        </td>
-                        <td>
-                            <div class="firma-espacio"></div>
-                            <p class="nombre-firmante">{{ strtoupper(session('ultima_orden.operaciones_nombre')) }}</p>
-                            <p class="cargo-firmante">
-                                <b>
-                                    OPERACIONES
-                                </b>
-                            </p>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                            {{-- Cargo --}}
+                            <table class="data-nombre-table">
+                                <tr>
+                                    <td class="label-cell"><b>Cargo:</b></td>
+                                    <td class="value-cell">{{ strtoupper(session('ultima_orden.cargo')) }}</td>
+                                </tr>
+                            </table>
 
-            <table class="tabla-autorizacion">
-                <tbody>
-                    <tr>
-                        <td>
-                            <div class="firma-espacio"></div>
-                            <p class="nombre-firmante">{{ strtoupper(session('ultima_orden.productor')) }}</p>
-                            <p class="cargo-firmante">
-                                <b>
-                                    PRODUCTOR
-                                </b>
-                            </p>
-                        </td>
-                        <td>
-                            <div class="firma-espacio"></div>
-                            <p class="nombre-firmante">{{ strtoupper(session('ultima_orden.director')) }}</p>
-                            <p class="cargo-firmante">
-                                <b>
-                                    Vo.Bo. DIRECTOR
-                                </b>
-                            </p>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+                            {{-- Modalidad del contrato --}}
+                            <div class="sin_subrayado_completo">
+                                <div class="contrato">
+                                    <span><b>Modalidad del contrato:</b></span>
+                                    <span>Contrato:</span>
+                                    <span><u>{{ session('ultima_orden.contrato') ? ' X ' : '____' }}</u></span>
+                                    <span>Confianza:</span>
+                                    <span><u>{{ session('ultima_orden.contrato') ? '____' : ' X ' }}</u></span>
+                                </div>
+
+                                {{-- Área de adscripción + Horario habitual --}}
+                                <table class="area-horario-table">
+                                    <tr>
+                                        <td class="area-cell">
+                                            <span><b>Área de adscripción:</b></span>
+                                            <span>CORTV</span> <span><u>{{ session('ultima_orden.area') === 'CORTV' ? ' X ' : '___' }}</u></span>
+                                            <span>TV</span> <span><u>{{ session('ultima_orden.area') === 'TV' ? ' X ' : '___' }}</u></span>
+                                            <span>Radio</span> <span><u>{{ session('ultima_orden.area') === 'RADIO' ? ' X ' : '___' }}</u></span>
+                                        </td>
+                                        <td style="text-align: right;">
+                                            <span><b>Horario Habitual:</b></span>
+                                            <span><u> {{ date('H:i', strtotime(session('ultima_orden.hora_inicio'))) }} - {{ date('H:i', strtotime(session('ultima_orden.hora_fin'))) }} </u></span>
+                                        </td>
+                                    </tr>
+                                </table>
+
+                                {{-- Fecha de solicitud / Fecha de llamado --}}
+                                <table class="paralelo-table">
+                                    <tr>
+                                        <td>
+                                            <span><b>Fecha de solicitud:</b></span>
+                                            <span><u> {{ session('ultima_orden.fecha_solicitud') }} </u></span>
+                                        </td>
+                                        <td>
+                                            <span><b>Fecha de llamado:</b></span>
+                                            <span><u> {{ session('ultima_orden.fecha_llamado') }} </u></span>
+                                        </td>
+                                    </tr>
+                                </table>
+
+                                {{-- Hora de llamado / Lugar de cita --}}
+                                <table class="paralelo-table">
+                                    <tr>
+                                        <td>
+                                            <span><b>Hora de llamado:</b></span>
+                                            <span><u> {{ session('ultima_orden.hora_llamado') }} hrs </u></span>
+                                        </td>
+                                        <td>
+                                            <span><b>Lugar de cita:</b></span>
+                                            <span><u> {{ session('ultima_orden.lugar_cita') }} </u></span>
+                                        </td>
+                                    </tr>
+                                </table>
+
+                                {{-- Locaciones --}}
+                                <table class="data-nombre-table">
+                                    <tr>
+                                        <td class="label-cell"><b>Locaciones:</b></td>
+                                        <td class="value-cell">{{ session('ultima_orden.locacion') }}</td>
+                                    </tr>
+                                </table>
+
+                                {{-- Actividades --}}
+                                <table class="data-nombre-table">
+                                    <tr>
+                                        <td class="label-cell"><b>Actividades:</b></td>
+                                        <td class="value-cell">{{ session('ultima_orden.actividades') }}</td>
+                                    </tr>
+                                </table>
+
+                                {{-- Nombre del proyecto --}}
+                                <table class="data-nombre-table">
+                                    <tr>
+                                        <td class="label-cell"><b>Nombre del proyecto:</b></td>
+                                        <td class="value-cell">{{ session('ultima_orden.nombre_proyecto') }}</td>
+                                    </tr>
+                                </table>
+
+                                {{-- Productor --}}
+                                <table class="data-nombre-table">
+                                    <tr>
+                                        <td class="label-cell"><b>Productor:</b></td>
+                                        <td class="value-cell">{{ session('ultima_orden.productor') }}</td>
+                                    </tr>
+                                </table>
+
+                                {{-- Director --}}
+                                <table class="data-nombre-table">
+                                    <tr>
+                                        <td class="label-cell"><b>Director:</b></td>
+                                        <td class="value-cell">{{ session('ultima_orden.director') }}</td>
+                                    </tr>
+                                </table>
+
+                                {{-- Asistente --}}
+                                <table class="data-nombre-table">
+                                    <tr>
+                                        <td class="label-cell"><b>Asistente:</b></td>
+                                        <td class="value-cell">{{ session('ultima_orden.asistente') }}</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                        {{-- Horas: primer tiro, catering, reinicio, último tiro --}}
+                        <div class="div25">
+                            <table class="paralelo-table">
+                                <tr>
+                                    <td>
+                                        <span><b>Hora del primer tiro:</b></span>
+                                        <span><u> {{ session('ultima_orden.hora_primer_tiro') ?? '________________' }} </u></span>
+                                    </td>
+                                    <td>
+                                        <span><b>Hora del catering:</b></span>
+                                        <span><u> {{ session('ultima_orden.hora_catering') }} hrs </u></span>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <table class="paralelo-table">
+                                <tr>
+                                    <td>
+                                        <span><b>Hora de reinicio de grabación:</b></span>
+                                        <span><u> {{ session('ultima_orden.hora_reinicio') }} hrs </u></span>
+                                    </td>
+                                    <td>
+                                        <span><b>Hora del último tiro:</b></span>
+                                        <span><u> {{ session('ultima_orden.hora_ultimo_tiro') }} hrs </u></span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        {{-- Observaciones --}}
+                        <div class="observaciones">
+                            <table class="data-nombre-table">
+                                <tr>
+                                    <td class="label-cell"><b>Observaciones:</b></td>
+                                    <td class="value-cell">{{ session('ultima_orden.observaciones') }}</td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        {{-- SECCIÓN DE FIRMAS --}}
+                        <div class="autorizacion">
+                            <table class="tabla-autorizacion">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="firma-espacio"></div>
+                                            <p class="nombre-firmante">{{ strtoupper(session('ultima_orden.nombre')) }}</p>
+                                            <p class="cargo-firmante">
+                                                <b>FIRMA DEL TRABAJADOR</b>
+                                            </p>
+                                        </td>
+                                        <td>
+                                            <div class="firma-espacio"></div>
+                                            <p class="nombre-firmante">{{ strtoupper(session('ultima_orden.operaciones_nombre')) }}</p>
+                                            <p class="cargo-firmante">
+                                                <b>OPERACIONES</b>
+                                            </p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <table class="tabla-autorizacion">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="firma-espacio"></div>
+                                            <p class="nombre-firmante">{{ strtoupper(session('ultima_orden.productor')) }}</p>
+                                            <p class="cargo-firmante">
+                                                <b>PRODUCTOR</b>
+                                            </p>
+                                        </td>
+                                        <td>
+                                            <div class="firma-espacio"></div>
+                                            <p class="nombre-firmante">{{ strtoupper(session('ultima_orden.director')) }}</p>
+                                            <p class="cargo-firmante">
+                                                <b>Vo.Bo. DIRECTOR</b>
+                                            </p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div> {{-- .contenido-orden --}}
+                </td> {{-- .contenido --}}
+            </tr>
+        </table> {{-- .main-table --}}
     </main>
 </body>
 
