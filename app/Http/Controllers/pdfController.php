@@ -12,7 +12,8 @@ class pdfController extends Controller
 {
     public function generatePDF()
     {
-        $pdf = Pdf::loadView('pdf.orden');
+        $pdf = Pdf::loadView('pdf.orden')
+            ->setPaper('letter', 'portrait');
 
         return $pdf->stream('orden.pdf');
     }
