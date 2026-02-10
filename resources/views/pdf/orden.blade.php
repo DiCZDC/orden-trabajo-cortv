@@ -85,7 +85,7 @@
         .data-nombre-table {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
 
         .data-nombre-table td {
@@ -338,7 +338,7 @@
                                             <span><b>Fecha de solicitud:</b></span>
                                             <span><u> {{ session('ultima_orden.fecha_solicitud') }} </u></span>
                                         </td>
-                                        <td>
+                                        <td style="text-align: right;">
                                             <span><b>Fecha de llamado:</b></span>
                                             <span><u> {{ session('ultima_orden.fecha_llamado') }} </u></span>
                                         </td>
@@ -352,7 +352,7 @@
                                             <span><b>Hora de llamado:</b></span>
                                             <span><u> {{ session('ultima_orden.hora_llamado') }} hrs </u></span>
                                         </td>
-                                        <td>
+                                        <td style="text-align: right;">
                                             <span><b>Lugar de cita:</b></span>
                                             <span><u> {{ session('ultima_orden.lugar_cita') }} </u></span>
                                         </td>
@@ -360,7 +360,7 @@
                                 </table>
 
                                 {{-- Locaciones --}}
-                                <table class="data-nombre-table">
+                                <table class="data-nombre-table" style="margin-top: 10px;">
                                     <tr>
                                         <td class="label-cell"><b>Locaciones:</b></td>
                                         <td class="value-cell">{{ session('ultima_orden.locacion') }}</td>
