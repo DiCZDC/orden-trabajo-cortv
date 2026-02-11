@@ -321,7 +321,7 @@
                                         <td class="area-cell">
                                             <span><b>Área de adscripción:</b></span>
                                             <span>CORTV</span> <span><u>{{ session('ultima_orden.area') === 'CORTV' ? ' X ' : '___' }}</u></span>
-                                            <span>TV</span> <span><u>{{ session('ultima_orden.area') === 'TV' ? ' X ' : '___' }}</u></span>
+                                            <span> TV</span> <span><u>{{ session('ultima_orden.area') === 'TV' ? ' X ' : '___' }}</u></span>
                                             <span>Radio</span> <span><u>{{ session('ultima_orden.area') === 'RADIO' ? ' X ' : '___' }}</u></span>
                                         </td>
                                         <td style="text-align: right;">
@@ -395,7 +395,7 @@
                                 <table class="data-nombre-table">
                                     <tr>
                                         <td class="label-cell"><b>Director:</b></td>
-                                        <td class="value-cell">{{ session('ultima_orden.director') }}</td>
+                                        <td class="value-cell"></td>
                                     </tr>
                                 </table>
 
@@ -403,7 +403,7 @@
                                 <table class="data-nombre-table">
                                     <tr>
                                         <td class="label-cell"><b>Asistente:</b></td>
-                                        <td class="value-cell">{{ session('ultima_orden.asistente') }}</td>
+                                        <td class="value-cell"></td>
                                     </tr>
                                 </table>
                             </div>
@@ -415,11 +415,11 @@
                                 <tr>
                                     <td>
                                         <span><b>Hora del primer tiro:</b></span>
-                                        <span><u> {{ session('ultima_orden.hora_primer_tiro') ?? '________________' }} </u></span>
+                                        <span><u> {{ session('ultima_orden.hora_primer_tiro')  }} _hrs </u></span>
                                     </td>
                                     <td>
                                         <span><b>Hora del catering:</b></span>
-                                        <span><u> {{ session('ultima_orden.hora_catering') }} hrs </u></span>
+                                        <span><u> {{ session('ultima_orden.hora_catering') }} _hrs </u></span>
                                     </td>
                                 </tr>
                             </table>
@@ -428,11 +428,11 @@
                                 <tr>
                                     <td>
                                         <span><b>Hora de reinicio de grabación:</b></span>
-                                        <span><u> {{ session('ultima_orden.hora_reinicio') }} hrs </u></span>
+                                        <span><u> {{ session('ultima_orden.hora_reinicio') }} _hrs </u></span>
                                     </td>
                                     <td>
                                         <span><b>Hora del último tiro:</b></span>
-                                        <span><u> {{ session('ultima_orden.hora_ultimo_tiro') }} hrs </u></span>
+                                        <span><u> {{ session('ultima_orden.hora_ultimo_tiro') }} _hrs </u></span>
                                     </td>
                                 </tr>
                             </table>

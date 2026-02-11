@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>{{ config('app.name', 'Dashboard') }}</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -19,7 +19,8 @@
             </style>
         @endif`
 
-        <body class="relative min-h-screen m-0 p-0" style="background-image: url('{{ asset('images/cortv.png') }}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+        <body class="relative min-h-screen m-0 p-0" style="background-image: url('{{ asset('images/cortv.png') }}'); background-size: cover; 
+        background-position: center; background-repeat: no-repeat;">
             
         <div class="
         w-screen min-h-screen flex items-center justify-center
