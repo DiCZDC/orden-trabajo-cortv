@@ -53,6 +53,9 @@
                         <a class="text-cortvGrisOscuro underline text-base" href="{{ route('password.request') }}">¿Olvidaste tu contraseña?</a>
                     </div>
                     @endif --}}
+                    <a href="/" class="text-cortvGrisTexto text-center border-gray-300 hover:text-gray-700 font-bold py-2 px-4 rounded">
+                            ← Volver a la pagina anterior
+                        </a>
                 </form>
             </div>
                      
