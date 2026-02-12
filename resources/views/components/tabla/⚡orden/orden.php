@@ -15,7 +15,7 @@ new class extends Component
 
     public function mount($fecha = null)
     {
-        $this->fecha =$fecha ?? date('Y-m-d', strtotime('+1 month'));
+        $this->fecha =$fecha ?? date('Y-m-d', strtotime('+1 year'));
     }
 
     #[Computed(cache: false)]
