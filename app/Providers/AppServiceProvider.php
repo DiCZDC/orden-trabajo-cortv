@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Schema;
+use Livewire\Features\SupportAutoInjectedAssets\SupportAutoInjectedAssets;
 
 use App\Models\{
 Trabajador,
@@ -32,6 +33,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        SupportAutoInjectedAssets::$forceAssetInjection = true;
+
         // Solo ejecutar seeding en entorno NativePHP (cuando NATIVEPHP_RUNNING está presente)
         if (env('NATIVEPHP_RUNNING')) {
             $this->seedDatabaseIfNeeded();

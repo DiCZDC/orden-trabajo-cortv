@@ -12,7 +12,7 @@
                 <div class="flex flex-col xl:flex-row justify-between">
                     
                     <div class="flex flex-col gap-5 w-[70%]">
-                        <p class="text-5xl">
+                        <p class="text-3xl md:text-5xl">
                             Informacion del proyecto
                         </p>
                         <p class="ml-4 text-2xl text-gray-600">

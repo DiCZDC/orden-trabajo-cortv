@@ -5,9 +5,9 @@
         </h2>
     </x-slot> --}}
     <!--cONTENEDOR PRINCIPAL-->
-    <div class="flex flex-row px-[10%] xs:px-[12%] py-[12px] ">
+    <div class="flex flex-col px-[10%] xs:px-[12%] py-[12px] lg:flex-row item-center justify-center ">
         <!-- Contenedor Izquierda -->
-            <div class="flex flex-col w-1/2 px-[1%] ">
+            <div class="flex flex-col px-[1%] ">
                     
                 <!-- Izquierda Bienvenida -->
                 <div class="bg-white px-[5%] py-[2%] w-full flex flex-col gap-3 items-center shadow-xl">
@@ -30,7 +30,7 @@
             </div>
 
         <!-- Contenedor Derecha -->
-        <div class="w-1/2 px-[1%] ">
+        <div class=" px-[1%] ">
             <livewire:dashboard.latest.main :tipo="2" :background="false"/>
         </div>
     </div>

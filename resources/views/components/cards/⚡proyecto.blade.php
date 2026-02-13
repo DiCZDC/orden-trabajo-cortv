@@ -26,9 +26,9 @@ new class extends Component
             {{ $small? "text-md" : "text-2xl" }}  font-bold ">  
                 {{ $proyecto->nombre }}
             </p>
-            <p class="{{ $small? "text-xs" : "text-md" }} font-normal">
+            {{-- <p class="{{ $small? "text-xs" : "text-md" }} font-normal">
                 <b>Actividad: </b>{{ $proyecto->actividad }}
-            </p>
+            </p> --}}
             <p class="{{ $small? "text-xs" : "text-md" }} ">
                 <b>Locación: </b>{{ $proyecto->locacion }}
             </p>

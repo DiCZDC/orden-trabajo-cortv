@@ -19,6 +19,7 @@ new class extends Component
     public function productores()
     {        
         return Productor::latest()->
+        where('trabajador_id', '>', 1)->
         paginate($this->perPage);
     }
 };

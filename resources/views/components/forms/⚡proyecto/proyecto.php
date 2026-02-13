@@ -48,7 +48,9 @@ new class extends Component
     #[Computed()]
     public function productores()
     {
-        return Trabajador::whereHas('productor')->pluck('nombre');
+        return Trabajador::whereHas('productor')
+        ->where ('nombre', '!=', '')
+        ->pluck('nombre');
     }
     #[Computed()]
     public function locaciones()

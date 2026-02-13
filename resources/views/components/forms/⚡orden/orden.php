@@ -92,7 +92,7 @@ new class extends Component
     #[Computed()]
     public function trabajadores()
     {
-        return Trabajador::all();
+        return Trabajador::where('nombre', '!=', '')->get();
     }
 
       

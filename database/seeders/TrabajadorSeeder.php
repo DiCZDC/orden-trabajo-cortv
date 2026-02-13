@@ -21,7 +21,13 @@ class TrabajadorSeeder extends Seeder
         Schema::disableForeignKeyConstraints();
         Trabajador::truncate();
         Schema::enableForeignKeyConstraints();
-        
+        $trabajador_aux = Trabajador::create([
+            'nombre' => '',
+        ]);
+        Productor::create([
+            'trabajador_id' => $trabajador_aux->id,                   
+        ]);
+
         $file = fopen($path, 'r');
         $isHeader = true;
         while (($data = fgetcsv($file, 1000, ',')) !== FALSE) {

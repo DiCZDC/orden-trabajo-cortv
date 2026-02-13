@@ -11,7 +11,7 @@
             {{-- Datos Principales --}}
                 
                 <div class="flex flex-col gap-5 w-[70%]">
-                    <p class="text-5xl">
+                    <p class="text-3xl md:text-5xl">
                         Nombre del Trabajador
                     </p>
                     <p class="ml-4 text-2xl text-gray-600">
