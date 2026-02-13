@@ -326,7 +326,9 @@
                                         </td>
                                         <td style="text-align: right;">
                                             <span><b>Horario Habitual:</b></span>
-                                            <span><u> {{ date('H:i', strtotime(session('ultima_orden.hora_inicio'))) }} - {{ date('H:i', strtotime(session('ultima_orden.hora_fin'))) }} </u></span>
+                                            <span><u> 
+                                                {{session('ultima_orden.horario_habitual') }}
+                                            </u></span>
                                         </td>
                                     </tr>
                                 </table>
@@ -350,7 +352,7 @@
                                     <tr>
                                         <td>
                                             <span><b>Hora de llamado:</b></span>
-                                            <span><u> {{ session('ultima_orden.hora_llamado') }} hrs </u></span>
+                                            <span><u> {{ session('ultima_orden.hora_llamado') }}  </u></span>
                                         </td>
                                         <td style="text-align: right;">
                                             <span><b>Lugar de cita:</b></span>
@@ -415,11 +417,11 @@
                                 <tr>
                                     <td>
                                         <span><b>Hora del primer tiro:</b></span>
-                                        <span><u> {{ session('ultima_orden.hora_primer_tiro')  }} _hrs </u></span>
+                                        <span><u> {{ session('ultima_orden.hora_primer_tiro')  }}  </u></span>
                                     </td>
                                     <td>
                                         <span><b>Hora del catering:</b></span>
-                                        <span><u> {{ session('ultima_orden.hora_catering') }} _hrs </u></span>
+                                        <span><u> {{ session('ultima_orden.hora_catering') }}  </u></span>
                                     </td>
                                 </tr>
                             </table>
@@ -428,11 +430,11 @@
                                 <tr>
                                     <td>
                                         <span><b>Hora de reinicio de grabación:</b></span>
-                                        <span><u> {{ session('ultima_orden.hora_reinicio') }} _hrs </u></span>
+                                        <span><u> {{ session('ultima_orden.hora_reinicio') }}  </u></span>
                                     </td>
                                     <td>
                                         <span><b>Hora del último tiro:</b></span>
-                                        <span><u> {{ session('ultima_orden.hora_ultimo_tiro') }} _hrs </u></span>
+                                        <span><u> {{ session('ultima_orden.hora_ultimo_tiro') }}  </u></span>
                                     </td>
                                 </tr>
                             </table>

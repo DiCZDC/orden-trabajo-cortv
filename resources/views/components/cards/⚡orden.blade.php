@@ -17,31 +17,7 @@ new class extends Component
         $this->Orden = $orden;
     }
     public function generatePDF(){
-        session()->put('ultima_orden',[
-            'nombre' => $this->empleado()->trabajador->nombre,
-            'cargo' => $this->empleado()->cargo,
-            'contrato' => true,
-            'area' => 'TV',
-            'hora_inicio' => $this->empleado()->hora_entrada,
-            'hora_fin' => $this->empleado()->hora_salida,
-            'fecha_solicitud' => $this->Orden->fecha_solicitud->format('Y-m-d'),
-            'fecha_llamado' => $this->Orden->fecha_cita->format('Y-m-d'),
-            'hora_llamado' => $this->Orden->hora_llamado,
-            'lugar_cita' => $this->Orden->lugar_cita,
-            'locacion' => $this->Orden->proyecto->locacion,
-            'actividades' => $this->Orden->actividad,
-            'asistente' => 'Carlos Gomez',
-            'director_proyecto' => 'PENDEJO DANIEL',
-            'nombre_proyecto' => $this->Orden->proyecto->nombre,
-            'hora_catering' => $this->Orden->hora_catering,
-            'hora_reinicio' => $this->Orden->hora_reinicio,
-            'hora_ultimo_tiro' => $this->Orden->hora_ultimo_tiro,
-            'observaciones' => $this->Orden->observaciones,
-            
-            'operaciones_nombre' => 'ING. EDWIN MARTÍNEZ CRUZ',
-            'productor' => $this->Orden->proyecto->productor->trabajador->nombre,
-            'director' => 'LIC. DIANA ISIS MOLINA DOMINGUEZ',
-        ]);
+        $this->Orden->save_data();
         // return (new pdfController())->generatePDF($this->Orden, $this->empleado);
         $this->js("window.open('".route('ordenes.pdf')."', '_blank')");
     }
