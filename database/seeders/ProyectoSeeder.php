@@ -21,7 +21,7 @@ class ProyectoSeeder extends Seeder
         Proyecto::truncate();
         Schema::enableForeignKeyConstraints();
 
-        // Crear algunos proyectos de ejemplo
+        // Crear algunos proyectos de base
         $proyectos = [
             [
                 'productor_id' => 1,  
