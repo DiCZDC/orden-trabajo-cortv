@@ -485,7 +485,13 @@
                                         </td>
                                         <td>
                                             <div class="firma-espacio"></div>
-                                            <p class="nombre-firmante">{{ strtoupper(session('ultima_orden.director')) }}</p>
+                                            
+                                            <p class="nombre-firmante">
+                                                 {{-- {{ strtoupper(substr(session('ultima_orden.nombre_proyecto'), 0, 10)) }} --}}
+                                                {{ strtoupper(substr(session('ultima_orden.nombre_proyecto'), 0, 10)) !== "CUBRETURNO" ?
+                                                   strtoupper(session('ultima_orden.director')) : "" }}</p>
+                                                                                        
+                                            
                                             <p class="cargo-firmante">
                                                 <b>Vo.Bo. DIRECTOR</b>
                                             </p>

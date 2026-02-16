@@ -18,7 +18,9 @@ class NativeAppServiceProvider implements ProvidesPhpIni
     {                
         Menu::create(); 
         Window::open()
-            ->title('Ordenes de Trabajo');
+            ->title('Ordenes de Trabajo')
+            ->width(1200)
+            ->height(800);
     }
         
     /**

@@ -5,9 +5,9 @@
         </h2>
     </x-slot> --}}
     <!--cONTENEDOR PRINCIPAL-->
-    <div class="flex flex-col px-[10%] xs:px-[12%] py-[12px] lg:flex-row item-center justify-center ">
+    <div class="flex flex-col px-[10%] gap-10 xs:px-[15%] py-[12px] lg:flex-row item-center justify-center ">
         <!-- Contenedor Izquierda -->
-            <div class="flex flex-col px-[1%] ">
+            <div class="flex flex-col px-[1%] w-[41%]">
                     
                 <!-- Izquierda Bienvenida -->
                 <div class="bg-white px-[5%] py-[2%] w-full flex flex-col gap-3 items-center shadow-xl">
@@ -24,13 +24,13 @@
                     
                 </div>
                 <!--- Izquierda Ultimos Proyectos -->
-                <div class="mt-4 w-full">
+                <div class="mt-4 w-full ">
                     <livewire:dashboard.latest.main :tipo="1" :background="true" />    
                 </div>
             </div>
 
         <!-- Contenedor Derecha -->
-        <div class=" px-[1%] ">
+        <div class=" px-[1%]  ">
             <livewire:dashboard.latest.main :tipo="2" :background="false"/>
         </div>
     </div>

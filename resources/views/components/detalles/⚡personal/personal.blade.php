@@ -34,6 +34,7 @@
                                     {{ strtoupper($this->trabajador->empleado->turno) }}
                                 </p>
                             </div>
+                            @if ($this->trabajador->empleado->turno !== 'DESCANSERO')
                             <div class="flex flex-col">
                                 <p class="text-3xl">
                                     Hora de Entrada:
@@ -50,6 +51,9 @@
                                     {{ \Carbon\Carbon::parse($this->trabajador->empleado->hora_salida)->format('H:i')}} HRS
                                 </p>
                             </div>
+                            @endif
+
+                          
                         </div>
                     @else
                         <p class="ml-4 text-2xl text-gray-600">
