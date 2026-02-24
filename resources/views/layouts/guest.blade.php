@@ -12,7 +12,7 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
         <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/css/register.css' ,'resources/js/app.js'])
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="text-gray-900 antialiased " style="background-image: url('{{ asset('images/cortv.png') }}'); background-size: cover; background-position: center; background-repeat: no-repeat;"  id="body" 
     style="font-family: 'Times New Roman', Times, serif;">
