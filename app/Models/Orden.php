@@ -19,6 +19,7 @@ class Orden extends Model
     protected $fillable = [
         'empleado_id',
         'proyecto_id',
+        'cargo',
         'actividad',
         'lugar_cita',
         'fecha_cita',
@@ -68,7 +69,7 @@ class Orden extends Model
             'nombre' => $this->empleado->trabajador->nombre,
             'contrato' => true,
             'area' => 'TV',
-            'cargo' => 'VACIOOOOO',
+            'cargo' => $this->cargo,
             //horario empleado
             'horario_habitual' => $this->fecha_cita->isWeekend() ? '___' : $this->empleado->hora_entrada->format('H:i') . ' - ' . $this->empleado->hora_salida->format('H:i').' hrs',
             //Datos de la orden

@@ -29,6 +29,9 @@ new class extends Component
     #[Validate('required',message: 'Seleccione una fecha')]
     public $nombre_fecha = '';
 
+    #[Validate('required',message: 'Ingrese un cargo de trabajo')]
+    public $cargo = '';
+
     public $hora_primer_tiro = '';
     public $hora_catering = '';
     public $hora_reinicio = '';
@@ -54,6 +57,7 @@ new class extends Component
         Orden::create([
             'lugar_cita' => $this->nombre_locacion,
             'actividad' => $this->nombre_actividad,
+            'cargo' => $this->cargo,
             'fecha_cita' => $this->nombre_fecha,
             'empleado_id' => $trabajador->empleado->id,
             'proyecto_id' => $proyecto->id,
@@ -71,7 +75,10 @@ new class extends Component
 
         return redirect()->route('ordenes.index')->with('success', 'Orden de trabajo creada exitosamente.');   
 }
-    
+    #[Computed()]
+    public function cargos(){
+        return Orden::all()->pluck('cargo')->unique();
+    }
     #[Computed()]
     public function locaciones()
     {

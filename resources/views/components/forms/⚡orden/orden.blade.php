@@ -42,7 +42,11 @@
                 <input list="cargos" id="cargo" name="cargo" wire:model.blur="cargo"
                         class="border-cortvBorde border-1 rounded-md p-2 h-[40px] w-full mt-2 text-[16px]"
                         placeholder="¿Cual es el cargo del trabajador? ">
-                
+                    <datalist id="cargos">
+                        @foreach($this->cargos as $cargo)
+                            <option value="{{ $cargo }}">
+                        @endforeach
+                    </datalist>
                 <div>
                     @error('cargo')
                             <span class="text-red-500 text-sm">{{ $message }}</span>
