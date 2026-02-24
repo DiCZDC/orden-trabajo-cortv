@@ -12,9 +12,10 @@ class pdfController extends Controller
 {
     public function generatePDF()
     {
+        
         $pdf = Pdf::loadView('pdf.orden')
             ->setPaper('letter', 'portrait');
 
-        return $pdf->stream('orden.pdf');
+        return $pdf->stream(session('ultima_orden.doc_nombre'));
     }
 }

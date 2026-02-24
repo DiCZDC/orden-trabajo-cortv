@@ -17,7 +17,8 @@ return new class extends Migration
             
             // Relación con Trabajador (1:N - Un trabajador tiene muchas órdenes)
             $table->foreignId('empleado_id')->constrained('empleados')->onDelete('cascade');
-            
+            $table->string('puesto_trabajador'); // Campo para almacenar el nombre del trabajador
+
             // Relación con Proyecto (N:1 - Una orden necesita un proyecto)
             $table->foreignId('proyecto_id')->constrained('proyectos')->onDelete('cascade');
             $table->text('actividad');

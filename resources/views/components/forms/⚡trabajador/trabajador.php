@@ -12,8 +12,8 @@ new class extends Component
     #[Validate('required',message: 'Ingrese el nombre del nuevo empleado')]
     public $nombre_empleado = '';
 
-    #[Validate('required',message: 'Ingrese el cargo del nuevo trabajador')]
-    public $cargo = '';
+    // #[Validate('required',message: 'Ingrese el cargo del nuevo trabajador')]
+    // public $cargo = '';
     #[Validate('required',message: 'Ingrese el turno del nuevo trabajador')]
     public $turno = '';
 
@@ -24,7 +24,7 @@ new class extends Component
     {
         $rules = [
             'nombre_empleado' => 'required',
-            'cargo' => 'required',
+            // 'cargo' => 'required',
             'turno' => 'required',
         ];
 
@@ -79,11 +79,6 @@ new class extends Component
 
         return redirect()->route('personal.index')->with('success', 'Trabajador nuevo registrado.');   
 
-    }
-
-    #[Computed()]
-    public function cargos(){
-        return Empleado::all()->pluck('cargo')->unique();
     }
 
 

@@ -28,27 +28,7 @@
                     @enderror
                 </div>
             </div> 
-            {{-- Cual es el cargo del empleado --}}
-            <div>
-                <label for="cargo" class="flex flex-col gap-1"> 
-                    <span> Cargo </span>
-                </label>
-
-                <input list="cargos" id="cargo" name="cargo" wire:model.blur="cargo"
-                        class="border-cortvBorde border-1 rounded-md p-2 h-[40px] w-full mt-2 text-[16px]"
-                        placeholder="¿Cual es el cargo del nuevo trabajador? ">
-                
-                <datalist id="cargos">
-                    @foreach($this->cargos as $cargo)
-                        <option value="{{ $cargo }}">
-                    @endforeach
-                </datalist>
-                <div>
-                    @error('cargo')
-                            <span class="text-red-500 text-sm">{{ $message }}</span>
-                    @enderror
-                </div>
-            </div> 
+            
             {{-- Que turno tendra el trabajador --}}
             <div>
                 <label for="turno" class="flex flex-col gap-1"> 

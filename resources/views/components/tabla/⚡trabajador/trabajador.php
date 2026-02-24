@@ -36,13 +36,6 @@ new class extends Component
     }
     
     #[Computed()]
-    public function areas()
-    {
-        return Empleado::
-        pluck('cargo')->
-        unique();
-    }
-    #[Computed()]
     public function trabajadores()
     {
         return Trabajador::search($this->search)

@@ -63,11 +63,12 @@ class Orden extends Model
     }
     public function save_data(){
         session()->put('ultima_orden',[
+            'doc_nombre' => 'ORDEN_'.$this->empleado->trabajador->nombre.'-'.$this->fecha_cita->format('Y-m-d').'.pdf',
             //Datos del trabajador
             'nombre' => $this->empleado->trabajador->nombre,
-            'cargo' => $this->empleado->cargo,
             'contrato' => true,
             'area' => 'TV',
+            'cargo' => 'VACIOOOOO',
             //horario empleado
             'horario_habitual' => $this->fecha_cita->isWeekend() ? '___' : $this->empleado->hora_entrada->format('H:i') . ' - ' . $this->empleado->hora_salida->format('H:i').' hrs',
             //Datos de la orden

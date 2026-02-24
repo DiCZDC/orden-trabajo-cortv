@@ -23,7 +23,7 @@ new class extends Component
     {
         return Orden::search($this->search)
         ->where('fecha_cita', '<', $this->fecha)
-        ->orderBy('fecha_cita', 'desc')
+        ->orderBy('created_at', 'desc')
         ->paginate($this->perPage);
     }
     public function render()

@@ -20,7 +20,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="flex space-x-3">
+                    {{-- <div class="flex space-x-3">
                         <div class="flex space-x-3 items-center">
                             <label class="w-80 text-sm font-medium text-gray-900">Cargo del Personal:</label>
                             <select 
@@ -33,7 +33,7 @@
                                 
                             </select>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
 
                 <!--Tabla-->

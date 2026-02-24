@@ -48,7 +48,7 @@ class TrabajadorSeeder extends Seeder
                 Empleado::create([
                 'trabajador_id' => $trabajador->id,
                 'turno' => $turno,
-                'cargo' => strtoupper($data[2]),
+                // 'cargo' => strtoupper($data[2]),
                 'hora_entrada' => $hora_entrada,
                 'hora_salida' => $hora_salida,
             ]);

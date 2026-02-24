@@ -17,9 +17,7 @@
                     <p class="ml-4 text-2xl text-gray-600">
                         {{ strtoupper($this->trabajador->nombre) }}
                     </p>
-                    <p class="text-3xl">
-                        Cargo:
-                    </p>
+                    
                     
                     @if($this->trabajador->productor === null)
                         <p class="ml-4 text-2xl text-gray-600">
@@ -56,6 +54,9 @@
                           
                         </div>
                     @else
+                        <p class="text-3xl">
+                            Cargo:
+                        </p>
                         <p class="ml-4 text-2xl text-gray-600">
                         PRODUCTOR
                         </p>

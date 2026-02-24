@@ -9,7 +9,7 @@ class Empleado extends Model
      protected $fillable = [
         'trabajador_id',   
         'turno',
-        'cargo',
+        // 'cargo',
         'hora_entrada',
         'hora_salida',
     ];

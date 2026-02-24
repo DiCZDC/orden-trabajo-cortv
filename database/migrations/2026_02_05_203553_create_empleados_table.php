@@ -17,7 +17,7 @@ return new class extends Migration
             $table->timestamps();
 
             $table->string('turno')->nullable();
-            $table->string('cargo')->nullable();
+            // $table->string('cargo')->nullable();
             
             //Se deben inicializar valores con el formato HH:MM:SS
             $table->time('hora_entrada')->nullable();
