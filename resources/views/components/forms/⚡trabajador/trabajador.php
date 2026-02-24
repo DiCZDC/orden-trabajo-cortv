@@ -12,8 +12,6 @@ new class extends Component
     #[Validate('required',message: 'Ingrese el nombre del nuevo empleado')]
     public $nombre_empleado = '';
 
-    // #[Validate('required',message: 'Ingrese el cargo del nuevo trabajador')]
-    // public $cargo = '';
     #[Validate('required',message: 'Ingrese el turno del nuevo trabajador')]
     public $turno = '';
 
@@ -24,7 +22,6 @@ new class extends Component
     {
         $rules = [
             'nombre_empleado' => 'required',
-            // 'cargo' => 'required',
             'turno' => 'required',
         ];
 
@@ -41,7 +38,6 @@ new class extends Component
 
     protected $messages = [
         'nombre_empleado.required' => 'Ingrese el nombre del nuevo empleado',
-        'cargo.required' => 'Ingrese el cargo del nuevo trabajador',
         'turno.required' => 'Ingrese el turno del nuevo trabajador',
         'hora_entrada.required' => 'Ingrese la hora de entrada del nuevo trabajador',
         'hora_entrada.before' => 'La hora de entrada debe ser anterior a la hora de salida',
@@ -68,7 +64,6 @@ new class extends Component
         
         Empleado::create([
             'trabajador_id' => $id_empleado,
-            'cargo' => $this->cargo,
             'turno' => $this->turno,
             'hora_entrada' => $this->hora_entrada,
             'hora_salida' => $this->hora_salida,
