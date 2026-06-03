@@ -94,7 +94,7 @@ class Orden extends Model
             //Datos adicionales
             'productor' => $this->proyecto->productor->trabajador->nombre,
             'operaciones_nombre' => 'ING. EDWIN MARTÍNEZ CRUZ',
-            'director' => 'LIC. DIANA ISIS MOLINA DOMINGUEZ',
+            'director' => 'LIC. CHRISTIAN YAMURITH GALLEGOS MACARIO',
         ]);
     }
 
