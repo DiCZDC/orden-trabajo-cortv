@@ -40,7 +40,7 @@ new class extends Component
             
             'operaciones_nombre' => 'ING. EDWIN MARTÍNEZ CRUZ',
             'productor' => $this->Orden->proyecto->productor->trabajador->nombre,
-            'director' => 'LIC. DIANA ISIS MOLINA DOMINGUEZ',
+            'director' => 'LIC. CHRISTIAN YAMURITH GALLEGOS MACARIO',
         ]);
         // return (new pdfController())->generatePDF($this->Orden, $this->empleado);
         $this->js("window.open('".route('ordenes.pdf')."', '_blank')");
